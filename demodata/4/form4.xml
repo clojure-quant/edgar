@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ownershipDocument>
+
+    <schemaVersion>X0306</schemaVersion>
+
+    <documentType>4</documentType>
+
+    <periodOfReport>2021-02-12</periodOfReport>
+
+    <issuer>
+        <issuerCik>0001631596</issuerCik>
+        <issuerName>KKR Real Estate Finance Trust Inc.</issuerName>
+        <issuerTradingSymbol>KREF</issuerTradingSymbol>
+    </issuer>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001472698</rptOwnerCik>
+            <rptOwnerName>KKR Group Partnership L.P.</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KOHLBERG KRAVIS ROBERTS &amp; CO. L.P.</rptOwnerStreet1>
+            <rptOwnerStreet2>30 HUDSON YARDS</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10001</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001081715</rptOwnerCik>
+            <rptOwnerName>ROBERTS GEORGE R</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KOHLBERG KRAVIS ROBERTS &amp; CO. L.P.</rptOwnerStreet1>
+            <rptOwnerStreet2>2800 SAND HILL ROAD, SUITE 200</rptOwnerStreet2>
+            <rptOwnerCity>MENLO PARK</rptOwnerCity>
+            <rptOwnerState>CA</rptOwnerState>
+            <rptOwnerZipCode>94025</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001081714</rptOwnerCik>
+            <rptOwnerName>KRAVIS HENRY R</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KKR &amp; CO. INC.</rptOwnerStreet1>
+            <rptOwnerStreet2>30 HUDSON YARDS</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10001</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001472694</rptOwnerCik>
+            <rptOwnerName>KKR Management LLP</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KOHLBERG KRAVIS ROBERTS &amp; CO. L.P.</rptOwnerStreet1>
+            <rptOwnerStreet2>30 HUDSON YARDS</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10001</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001404912</rptOwnerCik>
+            <rptOwnerName>KKR &amp; Co. Inc.</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KOHLBERG KRAVIS ROBERTS &amp; CO. L.P.</rptOwnerStreet1>
+            <rptOwnerStreet2>30 HUDSON YARDS</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10001</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <reportingOwner>
+        <reportingOwnerId>
+            <rptOwnerCik>0001743754</rptOwnerCik>
+            <rptOwnerName>KKR Group Holdings Corp.</rptOwnerName>
+        </reportingOwnerId>
+        <reportingOwnerAddress>
+            <rptOwnerStreet1>C/O KOHLBERG KRAVIS ROBERTS &amp; CO. L.P.</rptOwnerStreet1>
+            <rptOwnerStreet2>30 HUDSON YARDS</rptOwnerStreet2>
+            <rptOwnerCity>NEW YORK</rptOwnerCity>
+            <rptOwnerState>NY</rptOwnerState>
+            <rptOwnerZipCode>10001</rptOwnerZipCode>
+            <rptOwnerStateDescription/>
+        </reportingOwnerAddress>
+        <reportingOwnerRelationship>
+            <isTenPercentOwner>true</isTenPercentOwner>
+        </reportingOwnerRelationship>
+    </reportingOwner>
+
+    <nonDerivativeTable>
+        <nonDerivativeHolding>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>20000000</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>See Footnotes</value>
+                    <footnoteId id="F1"/>
+                    <footnoteId id="F5"/>
+                    <footnoteId id="F7"/>
+                    <footnoteId id="F8"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </nonDerivativeHolding>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2021-02-12</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>S</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>76101</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>18.73</value>
+                    <footnoteId id="F2"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>D</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>943161</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>See Footnotes</value>
+                    <footnoteId id="F6"/>
+                    <footnoteId id="F7"/>
+                    <footnoteId id="F8"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2021-02-16</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>S</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>85920</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>18.95</value>
+                    <footnoteId id="F3"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>D</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>857241</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>See Footnotes</value>
+                    <footnoteId id="F6"/>
+                    <footnoteId id="F7"/>
+                    <footnoteId id="F8"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+        <nonDerivativeTransaction>
+            <securityTitle>
+                <value>Common Stock</value>
+            </securityTitle>
+            <transactionDate>
+                <value>2021-02-17</value>
+            </transactionDate>
+            <transactionCoding>
+                <transactionFormType>4</transactionFormType>
+                <transactionCode>S</transactionCode>
+                <equitySwapInvolved>0</equitySwapInvolved>
+            </transactionCoding>
+            <transactionAmounts>
+                <transactionShares>
+                    <value>19524</value>
+                </transactionShares>
+                <transactionPricePerShare>
+                    <value>18.51</value>
+                    <footnoteId id="F4"/>
+                </transactionPricePerShare>
+                <transactionAcquiredDisposedCode>
+                    <value>D</value>
+                </transactionAcquiredDisposedCode>
+            </transactionAmounts>
+            <postTransactionAmounts>
+                <sharesOwnedFollowingTransaction>
+                    <value>837717</value>
+                </sharesOwnedFollowingTransaction>
+            </postTransactionAmounts>
+            <ownershipNature>
+                <directOrIndirectOwnership>
+                    <value>I</value>
+                </directOrIndirectOwnership>
+                <natureOfOwnership>
+                    <value>See Footnotes</value>
+                    <footnoteId id="F6"/>
+                    <footnoteId id="F7"/>
+                    <footnoteId id="F8"/>
+                </natureOfOwnership>
+            </ownershipNature>
+        </nonDerivativeTransaction>
+    </nonDerivativeTable>
+
+    <footnotes>
+        <footnote id="F1">Represents 20,000,000 shares of common stock ("Common Stock") of KKR Real Estate Finance Trust Inc. (the "Issuer") held by KKR REFT Holdings L.P. continuously since the initial public offering of the Issuer. KKR REFT Holdings L.P. did not sell any shares reported in this Form 4.  As described below, this Form 4 is being filed to report the sale of shares by a vehicle holding shares primarily for the benefit of a third party unaffiliated with KKR.</footnote>
+        <footnote id="F2">The price reported is a weighted average price per share of Common Stock of the Issuer sold by Tactical Value SPN-KREF Holdings L.P., a vehicle holding shares primarily for the benefit of a third party unaffiliated with KKR. These shares were sold in multiple transactions at prices ranging from $18.70 to $18.81, inclusive. The reporting persons undertake to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.</footnote>
+        <footnote id="F3">The price reported is a weighted average price per share of Common Stock of the Issuer sold by Tactical Value SPN-KREF Holdings L.P., a vehicle holding shares primarily for the benefit of a third party unaffiliated with KKR. These shares were sold in multiple transactions at prices ranging from $18.80 to $19.07, inclusive. The reporting persons undertake to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.</footnote>
+        <footnote id="F4">The price reported is a weighted average price per share of Common Stock of the Issuer sold by Tactical Value SPN-KREF Holdings L.P., a vehicle holding shares primarily for the benefit of a third party unaffiliated with KKR. These shares were sold in multiple transactions at prices ranging from $18.50 to $18.55, inclusive. The reporting persons undertake to provide to the Issuer, any security holder of the Issuer, or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote.</footnote>
+        <footnote id="F5">The general partner of KKR REFT Holdings L.P. is KKR REFT Holdings GP LLC, which is wholly owned by KKR REFT Asset Holdings LLC. KKR REFT Asset Holdings LLC is owned by KKR Group Partnership L.P. and KKR Financial Holdings LLC, whose common shares are wholly owned by KKR Group Partnership L.P. The general partner of KKR Group Partnership L.P. is KKR Group Holdings Corp.</footnote>
+        <footnote id="F6">Shares of Common Stock of the Issuer are held by Tactical Value SPN-KREF Holdings L.P. The general partner of Tactical Value SPN-KREF Holdings L.P. is Tactical Value SPN-SPV GP LLC, the sole member of which is KKR Tactical Value SPN L.P., the general partner of which is KKR Associates TV SPN L.P. The general partner of KKR Associates TV SPN L.P. is KKR TV SPN GP Limited, the sole shareholder of which is KKR Group Partnership L.P. The general partner of KKR Group Partnership L.P. is KKR Group Holdings Corp.</footnote>
+        <footnote id="F7">KKR &amp; Co. Inc. is the sole shareholder of KKR Group Holdings Corp. KKR Management LLP is the Series I preferred stockholder of KKR &amp; Co. Inc. Henry R. Kravis and George R. Roberts are the founding partners of KKR Management LLP.</footnote>
+        <footnote id="F8">Each of the Reporting Persons disclaims beneficial ownership of the securities reported herein, except to the extent of such Reporting Person's pecuniary interest therein. The filing of this statement shall not be deemed to be an admission that, for purposes of Section 16 of the Securities Exchange Act of 1934 or otherwise, the Reporting Persons are the beneficial owners of any securities reported herein.</footnote>
+    </footnotes>
+
+    <remarks>Because no more than 10 reporting persons can file any one Form 4 through the Securities and Exchange Commission's EDGAR system, certain affiliates of the Reporting Persons have filed a separate Form 4.</remarks>
+
+    <ownerSignature>
+        <signatureName>HENRY R. KRAVIS
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+
+    <ownerSignature>
+        <signatureName>GEORGE R. ROBERTS
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+
+    <ownerSignature>
+        <signatureName>KKR MANAGEMENT LLP
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact for Robert H. Lewin, Chief Financial Officer</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+
+    <ownerSignature>
+        <signatureName>KKR &amp; CO. INC.
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact for Robert H. Lewin, Chief Financial Officer</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+
+    <ownerSignature>
+        <signatureName>KKR GROUP HOLDINGS CORP.
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact for Robert H. Lewin, Chief Financial Officer</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+
+    <ownerSignature>
+        <signatureName>KKR GROUP PARTNERSHIP L.P.
+By: KKR Group Holdings Corp., general partner
+By: /s/ Terence P. Gallagher
+Name: Terence P. Gallagher
+Title: Attorney-in-fact for Robert H. Lewin, Chief Financial Officer</signatureName>
+        <signatureDate>2021-02-17</signatureDate>
+    </ownerSignature>
+</ownershipDocument>
