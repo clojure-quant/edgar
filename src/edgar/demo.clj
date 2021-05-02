@@ -1,7 +1,8 @@
 (ns edgar.demo
   (:require
-   [edgar.parse :refer [aparse hparse]]
-   [edgar.filing :refer [fload table filing]]
+   [edgar.edn :refer [edn-read]]
+   [edgar.filing :refer [fload table filing parse-filing]]
+   [edgar.download :refer [dl-filing]]
    )
   ;(:gen-class)
   )
@@ -18,6 +19,22 @@
       fload
       filing
    )
+
+  (defn dl-parse [f]
+    (let [body (dl-filing f)]
+      (when body
+        (parse-filing body))))
+ 
+  (dl-parse {:cik 1004655
+              :no "0001752724-21-069935"})
+
+(->>  (edn-read "report/index.edn")
+    ;count
+     ;first
+     (take 10)
+     ;(skip 100)
+     ;(map dl-filing)
+     (map dl-filing))
 
   ;
 )

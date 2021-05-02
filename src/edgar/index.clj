@@ -43,7 +43,6 @@
                            "Name" :name
                            ;"form" :f
                            }))
-  
      (edgar.helper/save "report/index.edn")
      )))
 

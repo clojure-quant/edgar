@@ -4,13 +4,6 @@
    [hickory.select :as s]))
 
 
-(defn fload [id]
-(->> (str "demodata/filings/" id ".html")
-     slurp
-     h/parse
-     ;h/as-hiccup
-     h/as-hickory))
-
 ; text
 
 (defn b [x]
@@ -79,6 +72,21 @@
      }))
 
 
+(defn parse-filing [body]
+    (->> body
+         h/parse
+         ;h/as-hiccup
+         h/as-hickory
+         filing
+         )
+  )
+
+(defn fload [id]
+  (->> (str "demodata/filings/" id ".html")
+       slurp
+       h/parse
+     ;h/as-hiccup
+       h/as-hickory))
 
 
 
