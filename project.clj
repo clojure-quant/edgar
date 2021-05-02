@@ -3,7 +3,9 @@
   :min-lein-version "2.9.4" ; nrepl 0.7.0
 
  
-  :dependencies [; dependency conflict resolution
+  :dependencies [[techascent/tech.ml.dataset "6.00-beta-7"]
+                 
+                 ; dependency conflict resolution
                  [commons-codec "1.15"]
                  [org.clojure/data.xml "0.0.8"]
                  [com.fasterxml.jackson.core/jackson-core "2.12.3"] ; cheshire + jsonista
