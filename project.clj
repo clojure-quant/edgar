@@ -24,6 +24,7 @@
                  [fipp "0.6.23"] ; edn pretty printing
                  [hickory "0.7.1"] ; html parser
                   [org.clojure/data.zip "0.1.1"]
+                 [clj-http "3.12.0"]
                  ]
 
   :target-path  "target/jar"

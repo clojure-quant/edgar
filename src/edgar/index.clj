@@ -1,6 +1,7 @@
 (ns edgar.index
   (:require
    [edgar.helper]
+   [clojure.set :refer [rename-keys]]
    [tech.v3.dataset :as ds]))
 
 (def re-filing #"edgar\/data\/(.*)\/(.*)\-index.html")
@@ -35,13 +36,21 @@
      (ds/mapseq-reader)
     ;count
     ; (doall)
-     (take 5000)
+      (take 100)
+     (map #(rename-keys % {"cik" :cik
+                           "no" :no
+                           "date" :date
+                           "Name" :name
+                           ;"form" :f
+                           }))
+  
      (edgar.helper/save "report/index.edn")
      )))
 
 (comment
   
 (p-filings "data/index/2021-QTR2.tsv")
+  
 
 (println (ds/head a))
 (ds/brief a)
