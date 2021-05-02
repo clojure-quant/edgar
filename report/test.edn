@@ -1,796 +1,1000 @@
-({:title "EXLSERVICE HOLDINGS INC",
-  :balance "77173.00000000",
-  :valUSD "6530379.26000000",
-  :pctVal "0.318938076609"}
- {:title "TAPESTRY INC",
-  :balance "510349.00000000",
-  :valUSD "21506106.86000000",
-  :pctVal "1.050339663930"}
- {:title "TCF FINANCIAL CORP",
-  :balance "360700.00000000",
-  :valUSD "16166574.00000000",
-  :pctVal "0.789561495839"}
- {:title "NEKTAR THERAPEUTICS",
-  :balance "400000.00000000",
-  :valUSD "9076000.00000000",
-  :pctVal "0.443263992497"}
- {:title "BOSTON BEER COMPANY CL A",
-  :balance "5800.00000000",
-  :valUSD "5966518.00000000",
-  :pctVal "0.291399580210"}
- {:title "HOLOGIC INC",
-  :balance "185000.00000000",
-  :valUSD "13336650.00000000",
-  :pctVal "0.651350454554"}
- {:title "PORSCHE AUTO HLDG NON-VTG PFD",
-  :balance "102342.00000000",
-  :valUSD "8197599.01000000",
-  :pctVal "0.400363647649"}
- {:title "PENUMBRA INC",
-  :balance "80000.00000000",
-  :valUSD "22754400.00000000",
-  :pctVal "1.111305221559"}
- {:title "ONEMAIN HOLDINGS INC",
-  :balance "558131.00000000",
-  :valUSD "26181925.21000000",
-  :pctVal "1.278702589229"}
- {:title "EXELIXIS INC",
-  :balance "600000.00000000",
-  :valUSD "12996000.00000000",
-  :pctVal "0.634713403095"}
- {:title "IAC/INTERACTIVECORP",
-  :balance "9000.00000000",
-  :valUSD "2203470.00000000",
-  :pctVal "0.107615569584"}
- {:title "GARTNER INC",
-  :balance "46000.00000000",
-  :valUSD "8235840.00000000",
-  :pctVal "0.402231304535"}
- {:title "LAMB WESTON HOLDINGS INC",
-  :balance "37100.00000000",
-  :valUSD "2959467.00000000",
-  :pctVal "0.144537809396"}
- {:title "ESSENT GROUP LTD",
-  :balance "259700.00000000",
-  :valUSD "10707431.00000000",
-  :pctVal "0.522941671931"}
- {:title "ASPEN TECHNOLOGIES",
-  :balance "57600.00000000",
-  :valUSD "8669376.00000000",
-  :pctVal "0.423404827921"}
- {:title "CIMAREX ENERGY CO",
-  :balance "139432.00000000",
-  :valUSD "8085661.68000000",
-  :pctVal "0.394896725237"}
- {:title "PROOFPOINT INC",
-  :balance "65100.00000000",
-  :valUSD "7871892.00000000",
-  :pctVal "0.384456398901"}
- {:title "FOUR CORNERS PPTY TR INC W/I",
-  :balance "436572.00000000",
-  :valUSD "11826735.48000000",
-  :pctVal "0.577607534935"}
- {:title "GODADDY INC CL A",
-  :balance "132000.00000000",
-  :valUSD "10707840.00000000",
-  :pctVal "0.522961647137"}
- {:title "DISCOVERY INC A",
-  :balance "29380.00000000",
-  :valUSD "1558021.40000000",
-  :pctVal "0.076092418043"}
- {:title "ARCADIS NV (NETH)",
-  :balance "281184.00000000",
-  :valUSD "9580774.50000000",
-  :pctVal "0.467916742627"}
- {:title "COGNEX CORP",
-  :balance "206771.00000000",
-  :valUSD "17077216.89000000",
-  :pctVal "0.834036507206"}
- {:title "JABIL INC",
-  :balance "113000.00000000",
-  :valUSD "4878210.00000000",
-  :pctVal "0.238247558488"}
- {:title "TTM TECHNOLOGIES INC",
-  :balance "466200.00000000",
-  :valUSD "6582744.00000000",
-  :pctVal "0.321495525234"}
- {:title "LIVERAMP HOLDINGS INC",
-  :balance "68400.00000000",
-  :valUSD "4320144.00000000",
-  :pctVal "0.210992097576"}
- {:title "TERRENO REALTY CORP",
-  :balance "99700.00000000",
-  :valUSD "5587188.00000000",
-  :pctVal "0.272873430995"}
- {:title "TAYLOR MORRISON HOME CORP",
-  :balance "404764.00000000",
-  :valUSD "11135057.64000000",
-  :pctVal "0.543826587284"}
- {:title "OGE ENERGY CORP",
-  :balance "368800.00000000",
-  :valUSD "10794776.00000000",
-  :pctVal "0.527207526209"}
- {:title "PLURALSIGHT INC",
-  :balance "386100.00000000",
-  :valUSD "7949799.00000000",
-  :pctVal "0.388261309419"}
- {:title "ANAPLAN INC",
-  :balance "129500.00000000",
-  :valUSD "8416205.00000000",
-  :pctVal "0.411040175184"}
- {:title "ELASTIC NV",
-  :balance "53200.00000000",
-  :valUSD "7149548.00000000",
-  :pctVal "0.349177742511"}
- {:title "POSTAL REALTY TRUST INC",
-  :balance "455675.00000000",
-  :valUSD "7327254.00000000",
-  :pctVal "0.357856749898"}
- {:title "TG THERAPEUTICS INC",
-  :balance "128000.00000000",
-  :valUSD "5602560.00000000",
-  :pctVal "0.273624186183"}
- {:title "HEALTHCARE REALTY TRUST INC",
-  :balance "499254.00000000",
-  :valUSD "14408470.44000000",
-  :pctVal "0.703697238101"}
- {:title "TRIMBLE INC",
-  :balance "122500.00000000",
-  :valUSD "9082150.00000000",
-  :pctVal "0.443564353179"}
- {:title "UST BILLS 0% 04/29/2021",
-  :balance "290000.00000000",
-  :valUSD "289980.99000000",
-  :pctVal "0.014162420821"}
- {:title "INGREDION INC",
-  :balance "47700.00000000",
-  :valUSD "4302540.00000000",
-  :pctVal "0.210132333437"}
- {:title "EQT CORPORATION",
-  :balance "358492.00000000",
-  :valUSD "6377572.68000000",
-  :pctVal "0.311475135365"}
- {:title "HARLEY-DAVIDSON INC",
-  :balance "345272.00000000",
-  :valUSD "12315852.24000000",
-  :pctVal "0.601495574582"}
- {:title "CINEMARK HOLDINGS INC",
-  :balance "146300.00000000",
-  :valUSD "3284435.00000000",
-  :pctVal "0.160408965535"}
- {:title "STEEL DYNAMICS INC",
-  :balance "369500.00000000",
-  :valUSD "15363810.00000000",
-  :pctVal "0.750355196184"}
- {:title "CERIDIAN HCM HLDG INC",
-  :balance "247900.00000000",
-  :valUSD "22226714.00000000",
-  :pctVal "1.085533493580"}
- {:title "REALPAGE INC",
-  :balance "75700.00000000",
-  :valUSD "6569246.00000000",
-  :pctVal "0.320836294585"}
- {:title "PVH CORP",
-  :balance "167454.00000000",
-  :valUSD "16738701.84000000",
-  :pctVal "0.817503724858"}
- {:title "ON SEMICONDUCTOR CORP",
-  :balance "373600.00000000",
-  :valUSD "15044872.00000000",
-  :pctVal "0.734778540031"}
- {:title "YAMANA GOLD INC",
-  :balance "1700400.00000000",
-  :valUSD "6818604.00000000",
-  :pctVal "0.333014723699"}
- {:title "CAIRO MEZZ PLC",
-  :balance "5744132.00000000",
-  :valUSD "836521.30000000",
-  :pctVal "0.040854976999"}
- {:title "CUBESMART",
-  :balance "220272.00000000",
-  :valUSD "8141253.12000000",
-  :pctVal "0.397611763100"}
- {:title "BRUKER CORP",
-  :balance "218000.00000000",
-  :valUSD "13293640.00000000",
-  :pctVal "0.649249883342"}
- {:title "VENTAS INC REIT",
-  :balance "280100.00000000",
-  :valUSD "14817290.00000000",
-  :pctVal "0.723663631929"}
- {:title "DARLING INGREDIENTS INC",
-  :balance "146400.00000000",
-  :valUSD "9229056.00000000",
-  :pctVal "0.450739115198"}
- {:title "LIBERTY SIRIUS GROUP-A",
-  :balance "27500.00000000",
-  :valUSD "1221275.00000000",
-  :pctVal "0.059646015032"}
- {:title "IRIDIUM COMMUNICATIONS INC",
-  :balance "21700.00000000",
-  :valUSD "831327.00000000",
-  :pctVal "0.040601291878"}
- {:title "MOLSON COORS BEVERAGE CO B",
-  :balance "30500.00000000",
-  :valUSD "1355725.00000000",
-  :pctVal "0.066212436781"}
- {:title "SPECTRUM BRANDS HOLDINGS INC",
-  :balance "52807.00000000",
-  :valUSD "4095182.85000000",
-  :pctVal "0.200005189521"}
- {:title "WEX INC",
-  :balance "60500.00000000",
-  :valUSD "12605175.00000000",
-  :pctVal "0.615625848019"}
- {:title "CAESARS ENTERTAINMENT INC",
-  :balance "392302.00000000",
-  :valUSD "36656698.88000000",
-  :pctVal "1.790281478329"}
- {:title "CITRIX SYSTEMS INC",
-  :balance "57600.00000000",
-  :valUSD "7694208.00000000",
-  :pctVal "0.375778465974"}
- {:title "WESTERN DIGITAL CORP",
-  :balance "127000.00000000",
-  :valUSD "8703310.00000000",
-  :pctVal "0.425062135141"}
- {:title "CAPRI HOLDINGS LTD",
-  :balance "303264.00000000",
-  :valUSD "14153330.88000000",
-  :pctVal "0.691236442596"}
- {:title "RMR GROUP INC W/I",
-  :balance "127456.00000000",
-  :valUSD "5122456.64000000",
-  :pctVal "0.250176353199"}
- {:title "STAR BULK CARRIERS CORP",
-  :balance "370708.00000000",
-  :valUSD "5219568.64000000",
-  :pctVal "0.254919219312"}
- {:title "CUSHMAN and WAKEFIELD PLC",
-  :balance "603211.00000000",
-  :valUSD "9337706.28000000",
-  :pctVal "0.456045500929"}
- {:title "HIGHWOODS PROPERTIES INC",
-  :balance "172100.00000000",
-  :valUSD "6877116.00000000",
-  :pctVal "0.335872399187"}
- {:title "UST BILLS 0% 04/08/2021",
-  :balance "600000.00000000",
-  :valUSD "599973.88000000",
-  :pctVal "0.029302205535"}
- {:title "AECOM",
-  :balance "531737.00000000",
-  :valUSD "30782254.93000000",
-  :pctVal "1.503378715110"}
- {:title "LENDINGTREE INC",
-  :balance "19100.00000000",
-  :valUSD "5135417.00000000",
-  :pctVal "0.250809325975"}
- {:title "HOLLYFRONTIER CORP",
-  :balance "75606.00000000",
-  :valUSD "2863955.28000000",
-  :pctVal "0.139873099575"}
- {:title "COLUMBIA SPORTSWEAR CO",
-  :balance "83904.00000000",
-  :valUSD "8647985.28000000",
-  :pctVal "0.422360123652"}
- {:title "ENERGIZER HLDGS INC",
-  :balance "121000.00000000",
-  :valUSD "5057800.00000000",
-  :pctVal "0.247018578807"}
- {:title "TENABLE HOLDINGS INC",
-  :balance "244500.00000000",
-  :valUSD "10002495.00000000",
-  :pctVal "0.488513207209"}
- {:title "WINTRUST FINANCIAL CORP",
-  :balance "125100.00000000",
-  :valUSD "9214866.00000000",
-  :pctVal "0.450046087867"}
- {:title "SENSATA TECHNOLOGIES HOLDING PLC",
-  :balance "526519.00000000",
-  :valUSD "30164273.51000000",
-  :pctVal "1.473197036890"}
- {:title "CACI INTERNATIONAL INC",
-  :balance "59600.00000000",
-  :valUSD "13191864.00000000",
-  :pctVal "0.644279231502"}
- {:title "REINSURANCE GROUP OF AMERICA",
-  :balance "104700.00000000",
-  :valUSD "12797481.00000000",
-  :pctVal "0.625017906783"}
- {:title "BEACON ROOFING SUPPLY INC",
-  :balance "149631.00000000",
-  :valUSD "7156850.73000000",
-  :pctVal "0.349534401530"}
- {:title "HESS MIDSTREAM LP CL A",
-  :balance "99365.00000000",
-  :valUSD "2083684.05000000",
-  :pctVal "0.101765327358"}
- {:title "TREEHOUSE FOODS INC",
-  :balance "86100.00000000",
-  :valUSD "4306722.00000000",
-  :pctVal "0.210336578701"}
- {:title "CHURCHILL DOWNS INC",
-  :balance "90047.00000000",
-  :valUSD "20767539.61000000",
-  :pctVal "1.014268678037"}
- {:title "VICI PPTYS INC",
-  :balance "242600.00000000",
-  :valUSD "6914100.00000000",
-  :pctVal "0.337678665769"}
- {:title "NAVIENT CORP",
-  :balance "842700.00000000",
-  :valUSD "10432626.00000000",
-  :pctVal "0.509520433339"}
- {:title "POST HOLDINGS INC",
-  :balance "34500.00000000",
-  :valUSD "3314070.00000000",
-  :pctVal "0.161856313311"}
- {:title "PATRIA INVESTMENTS LTD",
-  :balance "84600.00000000",
-  :valUSD "1637010.00000000",
-  :pctVal "0.079950152970"}
- {:title "SAFE BULKERS INC",
-  :balance "429105.00000000",
-  :valUSD "1180038.75000000",
-  :pctVal "0.057632072237"}
- {:title "SLM CORP",
-  :balance "900862.00000000",
-  :valUSD "14224610.98000000",
-  :pctVal "0.694717701048"}
- {:title "LIVE NATION ENTERTAINMENT INC",
-  :balance "14700.00000000",
-  :valUSD "1306242.00000000",
-  :pctVal "0.063795729846"}
- {:title "UGI CORP NEW",
-  :balance "85900.00000000",
-  :valUSD "3290829.00000000",
-  :pctVal "0.160721242966"}
- {:title "ARISTOCRAT LEISURE LTD",
-  :balance "219980.00000000",
-  :valUSD "5138843.21000000",
-  :pctVal "0.250976659109"}
- {:title "LHC GROUP INC",
-  :balance "95000.00000000",
-  :valUSD "17262450.00000000",
-  :pctVal "0.843083132137"}
- {:title "NISOURCE INC",
-  :balance "251300.00000000",
-  :valUSD "5428080.00000000",
-  :pctVal "0.265102733846"}
- {:title "SLACK TECHNOLOGIES INC CL A",
-  :balance "134400.00000000",
-  :valUSD "5500992.00000000",
-  :pctVal "0.268663692884"}
- {:title "GRANITE CONSTRUCTION INC",
-  :balance "675680.00000000",
-  :valUSD "23229878.40000000",
-  :pctVal "1.134527175496"}
- {:title "LKQ CORP",
-  :balance "311598.00000000",
-  :valUSD "12273845.22000000",
-  :pctVal "0.599443988046"}
- {:title "CHEMOURS CO/ THE",
-  :balance "440000.00000000",
-  :valUSD "10353200.00000000",
-  :pctVal "0.505641336174"}
- {:title "JAWS ACQUISITION CORP",
-  :balance "800000.00000000",
-  :valUSD "11456000.00000000",
-  :pctVal "0.559501134646"}
- {:title "NEXSTAR MEDIA GROUP INC A",
-  :balance "23300.00000000",
-  :valUSD "3204915.00000000",
-  :pctVal "0.156525277491"}
- {:title "CASEY GENERAL STORES",
-  :balance "11900.00000000",
-  :valUSD "2403324.00000000",
-  :pctVal "0.117376266141"}
- {:title "LEAR CORP NEW",
-  :balance "105353.00000000",
-  :valUSD "17498079.77000000",
-  :pctVal "0.854591086368"}
- {:title "GRAY TELEVISION INC",
-  :balance "23700.00000000",
-  :valUSD "430155.00000000",
-  :pctVal "0.021008398269"}
- {:title "INTERPUBLIC GROUP OF COS INC",
-  :balance "106751.00000000",
-  :valUSD "2788336.12000000",
-  :pctVal "0.136179925184"}
- {:title "GILDAN ACTIVEWEAR INC",
-  :balance "218302.00000000",
-  :valUSD "6629831.74000000",
-  :pctVal "0.323795249741"}
- {:title "NEUROCRINE BIOSCIENCES INC",
-  :balance "80000.00000000",
-  :valUSD "8760800.00000000",
-  :pctVal "0.427869897032"}
- {:title "KNIGHT-SWIFT TRANSPORTATION HOLDINGS INC",
-  :balance "409200.00000000",
-  :valUSD "17677440.00000000",
-  :pctVal "0.863350884919"}
- {:title "APTARGROUP INC",
-  :balance "137800.00000000",
-  :valUSD "17923646.00000000",
-  :pctVal "0.875375373079"}
- {:title "FIRST HORIZON CORP",
-  :balance "1465800.00000000",
-  :valUSD "23745960.00000000",
-  :pctVal "1.159732154614"}
- {:title "UST BILLS 0% 05/06/2021",
-  :balance "7550000.00000000",
-  :valUSD "7549492.49000000",
-  :pctVal "0.368710685593"}
- {:title "SUNSTONE HOTEL INVS INC",
-  :balance "775400.00000000",
-  :valUSD "10243034.00000000",
-  :pctVal "0.500260923989"}
- {:title "LAZARD LTD CL A",
-  :balance "171700.00000000",
-  :valUSD "6643073.00000000",
-  :pctVal "0.324441941431"}
- {:title "JETBLUE AIRWAYS CORP",
-  :balance "250700.00000000",
-  :valUSD "4620401.00000000",
-  :pctVal "0.225656389841"}
- {:title "SIGNATURE BANK",
-  :balance "111900.00000000",
-  :valUSD "24432246.00000000",
-  :pctVal "1.193249769461"}
- {:title "WHIRLPOOL CORP",
-  :balance "39620.00000000",
-  :valUSD "7530969.60000000",
-  :pctVal "0.367806043661"}
- {:title "NVR INC",
-  :balance "2778.00000000",
-  :valUSD "12503333.52000000",
-  :pctVal "0.610651998192"}
- {:title "INVITATION HOMES INC",
-  :balance "160700.00000000",
-  :valUSD "4682798.00000000",
-  :pctVal "0.228703805369"}
- {:title "SPROUTS FMRS MKT INC",
-  :balance "180900.00000000",
-  :valUSD "3818799.00000000",
-  :pctVal "0.186506841260"}
- {:title "DOUGLAS EMMETT INC REIT",
-  :balance "470700.00000000",
-  :valUSD "15415425.00000000",
-  :pctVal "0.752876028155"}
- {:title "MID AMERICA APT CMNTY INC",
-  :balance "53600.00000000",
-  :valUSD "7221528.00000000",
-  :pctVal "0.352693183474"}
- {:title "TRIPADVISOR INC",
-  :balance "40700.00000000",
-  :valUSD "2019534.00000000",
-  :pctVal "0.098632294383"}
- {:title "FLUOR CORP",
-  :balance "954800.00000000",
-  :valUSD "16384368.00000000",
-  :pctVal "0.800198366485"}
- {:title "NOMAD FOODS LTD",
-  :balance "125800.00000000",
-  :valUSD "2971396.00000000",
-  :pctVal "0.145120411442"}
- {:title "CORESITE REALTY CORP",
-  :balance "117300.00000000",
-  :valUSD "14276583.00000000",
-  :pctVal "0.697255969567"}
- {:title "PORTLAND GENERAL ELECTRIC CO",
-  :balance "149100.00000000",
-  :valUSD "6286056.00000000",
-  :pctVal "0.307005539843"}
- {:title "MGIC INVESTMENT CORP",
-  :balance "780000.00000000",
-  :valUSD "9500400.00000000",
-  :pctVal "0.463991321542"}
- {:title "MATTEL INC",
-  :balance "864676.00000000",
-  :valUSD "17466455.20000000",
-  :pctVal "0.853046569714"}
- {:title "Fidelity Cash Central Fund",
-  :balance "56442118.59700000",
-  :valUSD "56453407.02000000",
-  :pctVal "2.757135586795"}
- {:title "WARNER MUSIC GRP CORP CL A",
-  :balance "31600.00000000",
-  :valUSD "1120852.00000000",
-  :pctVal "0.054741442542"}
- {:title "VESPER HEALTHCARE ACQUISITION CORP A",
-  :balance "690000.00000000",
-  :valUSD "7617600.00000000",
-  :pctVal "0.372036997493"}
- {:title "VIRTU FINANCIAL INC- CL A",
-  :balance "281570.00000000",
-  :valUSD "7678413.90000000",
-  :pctVal "0.375007095786"}
- {:title "BLACK HILLS CORP",
-  :balance "98000.00000000",
-  :valUSD "5797680.00000000",
-  :pctVal "0.283153678274"}
- {:title "CIRRUS LOGIC INC",
-  :balance "178300.00000000",
-  :valUSD "14581374.00000000",
-  :pctVal "0.712141698472"}
- {:title "API GROUP CORP",
-  :balance "853300.00000000",
-  :valUSD "15786050.00000000",
-  :pctVal "0.770977032697"}
- {:title "MOLINA HEALTHCARE INC",
-  :balance "108000.00000000",
-  :valUSD "23410080.00000000",
-  :pctVal "1.143328065830"}
- {:title "BLACKBAUD INC",
-  :balance "156867.00000000",
-  :valUSD "10795586.94000000",
-  :pctVal "0.527247131817"}
- {:title "ALLY FINANCIAL INC",
-  :balance "167400.00000000",
-  :valUSD "6947100.00000000",
-  :pctVal "0.339290357236"}
- {:title "BRP GROUP INC",
-  :balance "357066.00000000",
-  :valUSD "9472960.98000000",
-  :pctVal "0.462651223530"}
- {:title "RENAISSANCERE HLDGS LTD",
-  :balance "80400.00000000",
-  :valUSD "13425192.00000000",
-  :pctVal "0.655674769277"}
- {:title "AVNET INC",
-  :balance "401900.00000000",
-  :valUSD "15300333.00000000",
-  :pctVal "0.747255034389"}
- {:title "LEGGETT and PLATT INC",
-  :balance "130540.00000000",
-  :valUSD "5648465.80000000",
-  :pctVal "0.275866185763"}
- {:title "REYNOLDS CONSUMER PRODUCTS INC",
-  :balance "88600.00000000",
-  :valUSD "2446246.00000000",
-  :pctVal "0.119472539509"}
- {:title "NIELSEN HOLDINGS PLC",
-  :balance "1558499.00000000",
-  :valUSD "34925962.59000000",
-  :pctVal "1.705753814395"}
- {:title "VOYA FINANCIAL INC",
-  :balance "148000.00000000",
-  :valUSD "8921440.00000000",
-  :pctVal "0.435715415736"}
- {:title "APACHE CORP",
-  :balance "135202.00000000",
-  :valUSD "2667535.46000000",
-  :pctVal "0.130280125399"}
- {:title "VISHAY INTERTECHNOLOGY INC",
-  :balance "108400.00000000",
-  :valUSD "2587508.00000000",
-  :pctVal "0.126371653448"}
- {:title "FAIRFAX FINL HLDGS LTD SUB VTG",
-  :balance "23600.00000000",
-  :valUSD "9613763.95000000",
-  :pctVal "0.469527918841"}
- {:title "FIRSTCASH INC",
-  :balance "97366.00000000",
-  :valUSD "6165215.12000000",
-  :pctVal "0.301103775748"}
- {:title "PIRAEUS FINANCIAL HOLDINGS SA",
-  :balance "1177100.00000000",
-  :valUSD "1092156.87000000",
-  :pctVal "0.053339997204"}
- {:title "TANDEM DIABETES CARE INC",
-  :balance "100000.00000000",
-  :valUSD "9599000.00000000",
-  :pctVal "0.468806860288"}
- {:title "GROCERY OUTLET HOLDING CORP",
-  :balance "62484.00000000",
-  :valUSD "2248799.16000000",
-  :pctVal "0.109829406565"}
- {:title "ASSOCIATED BANC CORP",
-  :balance "405800.00000000",
-  :valUSD "8176870.00000000",
-  :pctVal "0.399351260723"}
- {:title "EVERGY INC",
-  :balance "104165.00000000",
-  :valUSD "5586368.95000000",
-  :pctVal "0.272833429301"}
- {:title "DUKE REALTY CORP REIT",
-  :balance "351474.00000000",
-  :valUSD "13795354.50000000",
-  :pctVal "0.673753185718"}
- {:title "ALLISON TRANSMISSION HLDGS INC",
-  :balance "518463.00000000",
-  :valUSD "19660116.96000000",
-  :pctVal "0.960183113337"}
- {:title "ESSENTIAL UTILITIES INC",
-  :balance "271215.00000000",
-  :valUSD "11407302.90000000",
-  :pctVal "0.557122810387"}
- {:title "MRC GLOBAL INC",
-  :balance "2905430.00000000",
-  :valUSD "25393458.20000000",
-  :pctVal "1.240194542203"}
- {:title "MDU RESOURCES GROUP INC",
-  :balance "270539.00000000",
-  :valUSD "7602145.90000000",
-  :pctVal "0.371282232611"}
- {:title "EAGLE MATERIALS INC",
-  :balance "122600.00000000",
-  :valUSD "15371588.00000000",
-  :pctVal "0.750735066979"}
- {:title "VALVOLINE INC",
-  :balance "378804.00000000",
-  :valUSD "9454947.84000000",
-  :pctVal "0.461771477348"}
- {:title "LIVE OAK BANCSHARES INC",
-  :balance "100000.00000000",
-  :valUSD "5511000.00000000",
-  :pctVal "0.269152474950"}
- {:title "NANOSONICS LTD",
-  :balance "2180000.00000000",
-  :valUSD "10114728.00000000",
-  :pctVal "0.493994569887"}
- {:title "NOW INC",
-  :balance "1440096.00000000",
-  :valUSD "15308220.48000000",
-  :pctVal "0.747640252092"}
- {:title "JELD-WEN HOLDING INC",
-  :balance "883050.00000000",
-  :valUSD "26182432.50000000",
-  :pctVal "1.278727364834"}
- {:title "PTC INC",
-  :balance "151700.00000000",
-  :valUSD "20773798.00000000",
-  :pctVal "1.014574332394"}
- {:title "CRANE CO",
-  :balance "93500.00000000",
-  :valUSD "7840910.00000000",
-  :pctVal "0.382943264809"}
- {:title "LOUISIANA PACIFIC CORP",
-  :balance "310300.00000000",
-  :valUSD "14773383.00000000",
-  :pctVal "0.721519252013"}
- {:title "Fidelity Securities Lending Cash Central Fund",
-  :balance "10734075.87000000",
-  :valUSD "10735149.28000000",
-  :pctVal "0.524295408760"}
- {:title "LIBERTY FORMULA ONE-C",
-  :balance "22200.00000000",
-  :valUSD "974580.00000000",
-  :pctVal "0.047597644535"}
- {:title "UDR INC",
-  :balance "277563.00000000",
-  :valUSD "11427268.71000000",
-  :pctVal "0.558097923284"}
- {:title "ASSURANT INC",
-  :balance "112300.00000000",
-  :valUSD "13837606.00000000",
-  :pctVal "0.675816712446"}
- {:title "BJS WHSL CLUB HLDGS INC",
-  :balance "310205.00000000",
-  :valUSD "12464036.90000000",
-  :pctVal "0.608732785249"}
- {:title "KIRBY CORP",
-  :balance "394600.00000000",
-  :valUSD "24686176.00000000",
-  :pctVal "1.205651491102"}
- {:title "S4 CAPITAL PLC",
-  :balance "109000.00000000",
-  :valUSD "674253.07000000",
-  :pctVal "0.032929936950"}
- {:title "GOLDEN OCEAN GROUP LTD",
-  :balance "439225.00000000",
-  :valUSD "2679272.50000000",
-  :pctVal "0.130853352284"}
- {:title "BUNGE LIMITED",
-  :balance "22300.00000000",
-  :valUSD "1707734.00000000",
-  :pctVal "0.083404251979"}
- {:title "NORDSTROM INC",
-  :balance "267234.00000000",
-  :valUSD "9740679.30000000",
-  :pctVal "0.475726354798"}
- {:title "CABLE ONE INC",
-  :balance "4100.00000000",
-  :valUSD "7850885.00000000",
-  :pctVal "0.383430435184"}
- {:title "RPM INTERNATIONAL INC",
-  :balance "162600.00000000",
-  :valUSD "12949464.00000000",
-  :pctVal "0.632440625092"}
- {:title "DARDEN RESTAURANTS INC",
-  :balance "81955.00000000",
-  :valUSD "11254880.15000000",
-  :pctVal "0.549678615069"}
- {:title "NORTONLIFELOCK INC",
-  :balance "372400.00000000",
-  :valUSD "7265524.00000000",
-  :pctVal "0.354841910073"}
- {:title "S and P MID 400 EMINI FUT MAR21 FAH1",
-  :balance "115.00000000",
-  :valUSD "907000.32000000",
-  :pctVal "0.044297111397"}
- {:title "ASHLAND GLOBAL HOLDINGS INC",
-  :balance "163800.00000000",
-  :valUSD "13778856.00000000",
-  :pctVal "0.672947413244"}
- {:title "LIBERTY OILFIELD SERVICES INC CL A",
-  :balance "171660.00000000",
-  :valUSD "2006705.40000000",
-  :pctVal "0.098005756651"}
- {:title "GENCO SHIPPING and TRADING LTD",
-  :balance "464700.00000000",
-  :valUSD "4879350.00000000",
-  :pctVal "0.238303235102"}
- {:title "MOHAWK INDUSTRIES INC",
-  :balance "86640.00000000",
-  :valUSD "15161133.60000000",
-  :pctVal "0.740456656051"}
- {:title "TALANX AKTIENGESELLSCHAFT",
-  :balance "96200.00000000",
-  :valUSD "3999775.97000000",
-  :pctVal "0.195345599995"}
- {:title "US FOODS HOLDING CORP",
-  :balance "350020.00000000",
-  :valUSD "12761729.20000000",
-  :pctVal "0.623271819784"}
- {:title "INSULET CORP",
-  :balance "60000.00000000",
-  :valUSD "15546000.00000000",
-  :pctVal "0.759253198254"}
- {:title "PACWEST BANCORP",
-  :balance "771800.00000000",
-  :valUSD "27970032.00000000",
-  :pctVal "1.366032178778"}
- {:title "CURTISS WRIGHT CORPORATION",
-  :balance "309900.00000000",
-  :valUSD "34240851.00000000",
-  :pctVal "1.672293556716"}
- {:title "WYNDHAM HOTELS and RESORTS INC",
-  :balance "194833.00000000",
-  :valUSD "12718698.24000000",
-  :pctVal "0.621170224904"}
- {:title "BORGWARNER INC",
-  :balance "217250.00000000",
-  :valUSD "9776250.00000000",
-  :pctVal "0.477463597030"}
- {:title "AMERICAN FINL GROUP INC OHIO",
-  :balance "221923.00000000",
-  :valUSD "23679184.10000000",
-  :pctVal "1.156470877395"}
- {:title "NEW YORK TIMES CO CL A",
-  :balance "98000.00000000",
-  :valUSD "5014660.00000000",
-  :pctVal "0.244911658507"}
- {:title "NUANCE COMMUNICATIONS INC",
-  :balance "240000.00000000",
-  :valUSD "10704000.00000000",
-  :pctVal "0.522774104857"}
- {:title "GUIDEWIRE SOFTWARE INC",
-  :balance "55100.00000000",
-  :valUSD "6115549.00000000",
-  :pctVal "0.298678125391"}
- {:title "MASIMO CORP",
-  :balance "82800.00000000",
-  :valUSD "20760444.00000000",
-  :pctVal "1.013922134580"}
- {:title "SPIRIT AIRLINES INC",
-  :balance "274700.00000000",
-  :valUSD "9856236.00000000",
-  :pctVal "0.481370044111"}
- {:title "AKAMAI TECHNOLOGIES INC",
-  :balance "87900.00000000",
-  :valUSD "8306550.00000000",
-  :pctVal "0.405684719797"}
- {:title "LAMAR ADVERTISING CO CL A",
-  :balance "90000.00000000",
-  :valUSD "7793100.00000000",
-  :pctVal "0.380608265748"}
- {:title "SOUTHWEST GAS HOLDINGS INC",
-  :balance "80000.00000000",
-  :valUSD "4988000.00000000",
-  :pctVal "0.243609607159"}
- {:title "RALPH LAUREN CORP",
-  :balance "59269.00000000",
-  :valUSD "6939214.52000000",
-  :pctVal "0.338905237211"})
+{:fund "Fidelity Advisor Stock Selector Mid Cap Fund",
+ :cik "0000722574",
+ :date-filed "2021-02-28",
+ :date-report "2021-11-30",
+ :nav 2.06419586483E9,
+ :holdings ({:title "EXLSERVICE HOLDINGS INC",
+             :valUSD 6530379.26,
+             :pctVal 0.318938076609,
+             :cusip "302081104",
+             :qty 77173}
+            {:title "TAPESTRY INC",
+             :valUSD 2.150610686E7,
+             :pctVal 1.05033966393,
+             :cusip "876030107",
+             :qty 510349}
+            {:title "TCF FINANCIAL CORP",
+             :valUSD 16166574,
+             :pctVal 0.789561495839,
+             :cusip "872307103",
+             :qty 360700}
+            {:title "NEKTAR THERAPEUTICS",
+             :valUSD 9076000,
+             :pctVal 0.443263992497,
+             :cusip "640268108",
+             :qty 400000}
+            {:title "BOSTON BEER COMPANY CL A",
+             :valUSD 5966518,
+             :pctVal 0.29139958021,
+             :cusip "100557107",
+             :qty 5800}
+            {:title "HOLOGIC INC",
+             :valUSD 13336650,
+             :pctVal 0.651350454554,
+             :cusip "436440101",
+             :qty 185000}
+            {:title "PORSCHE AUTO HLDG NON-VTG PFD",
+             :valUSD 8197599.01,
+             :pctVal 0.400363647649,
+             :cusip "N/A",
+             :qty 102342}
+            {:title "PENUMBRA INC",
+             :valUSD 22754400,
+             :pctVal 1.111305221559,
+             :cusip "70975L107",
+             :qty 80000}
+            {:title "ONEMAIN HOLDINGS INC",
+             :valUSD 2.618192521E7,
+             :pctVal 1.278702589229,
+             :cusip "68268W103",
+             :qty 558131}
+            {:title "EXELIXIS INC",
+             :valUSD 12996000,
+             :pctVal 0.634713403095,
+             :cusip "30161Q104",
+             :qty 600000}
+            {:title "IAC/INTERACTIVECORP",
+             :valUSD 2203470,
+             :pctVal 0.107615569584,
+             :cusip "44891N109",
+             :qty 9000}
+            {:title "GARTNER INC",
+             :valUSD 8235840,
+             :pctVal 0.402231304535,
+             :cusip "366651107",
+             :qty 46000}
+            {:title "LAMB WESTON HOLDINGS INC",
+             :valUSD 2959467,
+             :pctVal 0.144537809396,
+             :cusip "513272104",
+             :qty 37100}
+            {:title "ESSENT GROUP LTD",
+             :valUSD 10707431,
+             :pctVal 0.522941671931,
+             :cusip "N/A",
+             :qty 259700}
+            {:title "ASPEN TECHNOLOGIES",
+             :valUSD 8669376,
+             :pctVal 0.423404827921,
+             :cusip "045327103",
+             :qty 57600}
+            {:title "CIMAREX ENERGY CO",
+             :valUSD 8085661.68,
+             :pctVal 0.394896725237,
+             :cusip "171798101",
+             :qty 139432}
+            {:title "PROOFPOINT INC",
+             :valUSD 7871892,
+             :pctVal 0.384456398901,
+             :cusip "743424103",
+             :qty 65100}
+            {:title "FOUR CORNERS PPTY TR INC W/I",
+             :valUSD 1.182673548E7,
+             :pctVal 0.577607534935,
+             :cusip "35086T109",
+             :qty 436572}
+            {:title "GODADDY INC CL A",
+             :valUSD 10707840,
+             :pctVal 0.522961647137,
+             :cusip "380237107",
+             :qty 132000}
+            {:title "DISCOVERY INC A",
+             :valUSD 1558021.4,
+             :pctVal 0.076092418043,
+             :cusip "25470F104",
+             :qty 29380}
+            {:title "ARCADIS NV (NETH)",
+             :valUSD 9580774.5,
+             :pctVal 0.467916742627,
+             :cusip "N/A",
+             :qty 281184}
+            {:title "COGNEX CORP",
+             :valUSD 1.707721689E7,
+             :pctVal 0.834036507206,
+             :cusip "192422103",
+             :qty 206771}
+            {:title "JABIL INC",
+             :valUSD 4878210,
+             :pctVal 0.238247558488,
+             :cusip "466313103",
+             :qty 113000}
+            {:title "TTM TECHNOLOGIES INC",
+             :valUSD 6582744,
+             :pctVal 0.321495525234,
+             :cusip "87305R109",
+             :qty 466200}
+            {:title "LIVERAMP HOLDINGS INC",
+             :valUSD 4320144,
+             :pctVal 0.210992097576,
+             :cusip "53815P108",
+             :qty 68400}
+            {:title "TERRENO REALTY CORP",
+             :valUSD 5587188,
+             :pctVal 0.272873430995,
+             :cusip "88146M101",
+             :qty 99700}
+            {:title "TAYLOR MORRISON HOME CORP",
+             :valUSD 1.113505764E7,
+             :pctVal 0.543826587284,
+             :cusip "87724P106",
+             :qty 404764}
+            {:title "OGE ENERGY CORP",
+             :valUSD 10794776,
+             :pctVal 0.527207526209,
+             :cusip "670837103",
+             :qty 368800}
+            {:title "PLURALSIGHT INC",
+             :valUSD 7949799,
+             :pctVal 0.388261309419,
+             :cusip "72941B106",
+             :qty 386100}
+            {:title "ANAPLAN INC",
+             :valUSD 8416205,
+             :pctVal 0.411040175184,
+             :cusip "03272L108",
+             :qty 129500}
+            {:title "ELASTIC NV",
+             :valUSD 7149548,
+             :pctVal 0.349177742511,
+             :cusip "N/A",
+             :qty 53200}
+            {:title "POSTAL REALTY TRUST INC",
+             :valUSD 7327254,
+             :pctVal 0.357856749898,
+             :cusip "73757R102",
+             :qty 455675}
+            {:title "TG THERAPEUTICS INC",
+             :valUSD 5602560,
+             :pctVal 0.273624186183,
+             :cusip "88322Q108",
+             :qty 128000}
+            {:title "HEALTHCARE REALTY TRUST INC",
+             :valUSD 1.440847044E7,
+             :pctVal 0.703697238101,
+             :cusip "421946104",
+             :qty 499254}
+            {:title "TRIMBLE INC",
+             :valUSD 9082150,
+             :pctVal 0.443564353179,
+             :cusip "896239100",
+             :qty 122500}
+            {:title "UST BILLS 0% 04/29/2021",
+             :valUSD 289980.99,
+             :pctVal 0.014162420821,
+             :cusip "9127964Z9",
+             :qty 290000}
+            {:title "INGREDION INC",
+             :valUSD 4302540,
+             :pctVal 0.210132333437,
+             :cusip "457187102",
+             :qty 47700}
+            {:title "EQT CORPORATION",
+             :valUSD 6377572.68,
+             :pctVal 0.311475135365,
+             :cusip "26884L109",
+             :qty 358492}
+            {:title "HARLEY-DAVIDSON INC",
+             :valUSD 1.231585224E7,
+             :pctVal 0.601495574582,
+             :cusip "412822108",
+             :qty 345272}
+            {:title "CINEMARK HOLDINGS INC",
+             :valUSD 3284435,
+             :pctVal 0.160408965535,
+             :cusip "17243V102",
+             :qty 146300}
+            {:title "STEEL DYNAMICS INC",
+             :valUSD 15363810,
+             :pctVal 0.750355196184,
+             :cusip "858119100",
+             :qty 369500}
+            {:title "CERIDIAN HCM HLDG INC",
+             :valUSD 22226714,
+             :pctVal 1.08553349358,
+             :cusip "15677J108",
+             :qty 247900}
+            {:title "REALPAGE INC",
+             :valUSD 6569246,
+             :pctVal 0.320836294585,
+             :cusip "75606N109",
+             :qty 75700}
+            {:title "PVH CORP",
+             :valUSD 1.673870184E7,
+             :pctVal 0.817503724858,
+             :cusip "693656100",
+             :qty 167454}
+            {:title "ON SEMICONDUCTOR CORP",
+             :valUSD 15044872,
+             :pctVal 0.734778540031,
+             :cusip "682189105",
+             :qty 373600}
+            {:title "YAMANA GOLD INC",
+             :valUSD 6818604,
+             :pctVal 0.333014723699,
+             :cusip "98462Y100",
+             :qty 1700400}
+            {:title "CAIRO MEZZ PLC",
+             :valUSD 836521.3,
+             :pctVal 0.040854976999,
+             :cusip "N/A",
+             :qty 5744132}
+            {:title "CUBESMART",
+             :valUSD 8141253.12,
+             :pctVal 0.3976117631,
+             :cusip "229663109",
+             :qty 220272}
+            {:title "BRUKER CORP",
+             :valUSD 13293640,
+             :pctVal 0.649249883342,
+             :cusip "116794108",
+             :qty 218000}
+            {:title "VENTAS INC REIT",
+             :valUSD 14817290,
+             :pctVal 0.723663631929,
+             :cusip "92276F100",
+             :qty 280100}
+            {:title "DARLING INGREDIENTS INC",
+             :valUSD 9229056,
+             :pctVal 0.450739115198,
+             :cusip "237266101",
+             :qty 146400}
+            {:title "LIBERTY SIRIUS GROUP-A",
+             :valUSD 1221275,
+             :pctVal 0.059646015032,
+             :cusip "531229409",
+             :qty 27500}
+            {:title "IRIDIUM COMMUNICATIONS INC",
+             :valUSD 831327,
+             :pctVal 0.040601291878,
+             :cusip "46269C102",
+             :qty 21700}
+            {:title "MOLSON COORS BEVERAGE CO B",
+             :valUSD 1355725,
+             :pctVal 0.066212436781,
+             :cusip "60871R209",
+             :qty 30500}
+            {:title "SPECTRUM BRANDS HOLDINGS INC",
+             :valUSD 4095182.85,
+             :pctVal 0.200005189521,
+             :cusip "84790A105",
+             :qty 52807}
+            {:title "WEX INC",
+             :valUSD 12605175,
+             :pctVal 0.615625848019,
+             :cusip "96208T104",
+             :qty 60500}
+            {:title "CAESARS ENTERTAINMENT INC",
+             :valUSD 3.665669888E7,
+             :pctVal 1.790281478329,
+             :cusip "12769G100",
+             :qty 392302}
+            {:title "CITRIX SYSTEMS INC",
+             :valUSD 7694208,
+             :pctVal 0.375778465974,
+             :cusip "177376100",
+             :qty 57600}
+            {:title "WESTERN DIGITAL CORP",
+             :valUSD 8703310,
+             :pctVal 0.425062135141,
+             :cusip "958102105",
+             :qty 127000}
+            {:title "CAPRI HOLDINGS LTD",
+             :valUSD 1.415333088E7,
+             :pctVal 0.691236442596,
+             :cusip "N/A",
+             :qty 303264}
+            {:title "RMR GROUP INC W/I",
+             :valUSD 5122456.64,
+             :pctVal 0.250176353199,
+             :cusip "74967R106",
+             :qty 127456}
+            {:title "STAR BULK CARRIERS CORP",
+             :valUSD 5219568.64,
+             :pctVal 0.254919219312,
+             :cusip "N/A",
+             :qty 370708}
+            {:title "CUSHMAN and WAKEFIELD PLC",
+             :valUSD 9337706.28,
+             :pctVal 0.456045500929,
+             :cusip "N/A",
+             :qty 603211}
+            {:title "HIGHWOODS PROPERTIES INC",
+             :valUSD 6877116,
+             :pctVal 0.335872399187,
+             :cusip "431284108",
+             :qty 172100}
+            {:title "UST BILLS 0% 04/08/2021",
+             :valUSD 599973.88,
+             :pctVal 0.029302205535,
+             :cusip "9127964X4",
+             :qty 600000}
+            {:title "AECOM",
+             :valUSD 3.078225493E7,
+             :pctVal 1.50337871511,
+             :cusip "00766T100",
+             :qty 531737}
+            {:title "LENDINGTREE INC",
+             :valUSD 5135417,
+             :pctVal 0.250809325975,
+             :cusip "52603B107",
+             :qty 19100}
+            {:title "HOLLYFRONTIER CORP",
+             :valUSD 2863955.28,
+             :pctVal 0.139873099575,
+             :cusip "436106108",
+             :qty 75606}
+            {:title "COLUMBIA SPORTSWEAR CO",
+             :valUSD 8647985.28,
+             :pctVal 0.422360123652,
+             :cusip "198516106",
+             :qty 83904}
+            {:title "ENERGIZER HLDGS INC",
+             :valUSD 5057800,
+             :pctVal 0.247018578807,
+             :cusip "29272W109",
+             :qty 121000}
+            {:title "TENABLE HOLDINGS INC",
+             :valUSD 10002495,
+             :pctVal 0.488513207209,
+             :cusip "88025T102",
+             :qty 244500}
+            {:title "WINTRUST FINANCIAL CORP",
+             :valUSD 9214866,
+             :pctVal 0.450046087867,
+             :cusip "97650W108",
+             :qty 125100}
+            {:title "SENSATA TECHNOLOGIES HOLDING PLC",
+             :valUSD 3.016427351E7,
+             :pctVal 1.47319703689,
+             :cusip "N/A",
+             :qty 526519}
+            {:title "CACI INTERNATIONAL INC",
+             :valUSD 13191864,
+             :pctVal 0.644279231502,
+             :cusip "127190304",
+             :qty 59600}
+            {:title "REINSURANCE GROUP OF AMERICA",
+             :valUSD 12797481,
+             :pctVal 0.625017906783,
+             :cusip "759351604",
+             :qty 104700}
+            {:title "BEACON ROOFING SUPPLY INC",
+             :valUSD 7156850.73,
+             :pctVal 0.34953440153,
+             :cusip "073685109",
+             :qty 149631}
+            {:title "HESS MIDSTREAM LP CL A",
+             :valUSD 2083684.05,
+             :pctVal 0.101765327358,
+             :cusip "428103105",
+             :qty 99365}
+            {:title "TREEHOUSE FOODS INC",
+             :valUSD 4306722,
+             :pctVal 0.210336578701,
+             :cusip "89469A104",
+             :qty 86100}
+            {:title "CHURCHILL DOWNS INC",
+             :valUSD 2.076753961E7,
+             :pctVal 1.014268678037,
+             :cusip "171484108",
+             :qty 90047}
+            {:title "VICI PPTYS INC",
+             :valUSD 6914100,
+             :pctVal 0.337678665769,
+             :cusip "925652109",
+             :qty 242600}
+            {:title "NAVIENT CORP",
+             :valUSD 10432626,
+             :pctVal 0.509520433339,
+             :cusip "63938C108",
+             :qty 842700}
+            {:title "POST HOLDINGS INC",
+             :valUSD 3314070,
+             :pctVal 0.161856313311,
+             :cusip "737446104",
+             :qty 34500}
+            {:title "PATRIA INVESTMENTS LTD",
+             :valUSD 1637010,
+             :pctVal 0.07995015297,
+             :cusip "N/A",
+             :qty 84600}
+            {:title "SAFE BULKERS INC",
+             :valUSD 1180038.75,
+             :pctVal 0.057632072237,
+             :cusip "N/A",
+             :qty 429105}
+            {:title "SLM CORP",
+             :valUSD 1.422461098E7,
+             :pctVal 0.694717701048,
+             :cusip "78442P106",
+             :qty 900862}
+            {:title "LIVE NATION ENTERTAINMENT INC",
+             :valUSD 1306242,
+             :pctVal 0.063795729846,
+             :cusip "538034109",
+             :qty 14700}
+            {:title "UGI CORP NEW",
+             :valUSD 3290829,
+             :pctVal 0.160721242966,
+             :cusip "902681105",
+             :qty 85900}
+            {:title "ARISTOCRAT LEISURE LTD",
+             :valUSD 5138843.21,
+             :pctVal 0.250976659109,
+             :cusip "N/A",
+             :qty 219980}
+            {:title "LHC GROUP INC",
+             :valUSD 17262450,
+             :pctVal 0.843083132137,
+             :cusip "50187A107",
+             :qty 95000}
+            {:title "NISOURCE INC",
+             :valUSD 5428080,
+             :pctVal 0.265102733846,
+             :cusip "65473P105",
+             :qty 251300}
+            {:title "SLACK TECHNOLOGIES INC CL A",
+             :valUSD 5500992,
+             :pctVal 0.268663692884,
+             :cusip "83088V102",
+             :qty 134400}
+            {:title "GRANITE CONSTRUCTION INC",
+             :valUSD 2.32298784E7,
+             :pctVal 1.134527175496,
+             :cusip "387328107",
+             :qty 675680}
+            {:title "LKQ CORP",
+             :valUSD 1.227384522E7,
+             :pctVal 0.599443988046,
+             :cusip "501889208",
+             :qty 311598}
+            {:title "CHEMOURS CO/ THE",
+             :valUSD 10353200,
+             :pctVal 0.505641336174,
+             :cusip "163851108",
+             :qty 440000}
+            {:title "JAWS ACQUISITION CORP",
+             :valUSD 11456000,
+             :pctVal 0.559501134646,
+             :cusip "N/A",
+             :qty 800000}
+            {:title "NEXSTAR MEDIA GROUP INC A",
+             :valUSD 3204915,
+             :pctVal 0.156525277491,
+             :cusip "65336K103",
+             :qty 23300}
+            {:title "CASEY GENERAL STORES",
+             :valUSD 2403324,
+             :pctVal 0.117376266141,
+             :cusip "147528103",
+             :qty 11900}
+            {:title "LEAR CORP NEW",
+             :valUSD 1.749807977E7,
+             :pctVal 0.854591086368,
+             :cusip "521865204",
+             :qty 105353}
+            {:title "GRAY TELEVISION INC",
+             :valUSD 430155,
+             :pctVal 0.021008398269,
+             :cusip "389375106",
+             :qty 23700}
+            {:title "INTERPUBLIC GROUP OF COS INC",
+             :valUSD 2788336.12,
+             :pctVal 0.136179925184,
+             :cusip "460690100",
+             :qty 106751}
+            {:title "GILDAN ACTIVEWEAR INC",
+             :valUSD 6629831.74,
+             :pctVal 0.323795249741,
+             :cusip "375916103",
+             :qty 218302}
+            {:title "NEUROCRINE BIOSCIENCES INC",
+             :valUSD 8760800,
+             :pctVal 0.427869897032,
+             :cusip "64125C109",
+             :qty 80000}
+            {:title "KNIGHT-SWIFT TRANSPORTATION HOLDINGS INC",
+             :valUSD 17677440,
+             :pctVal 0.863350884919,
+             :cusip "499049104",
+             :qty 409200}
+            {:title "APTARGROUP INC",
+             :valUSD 17923646,
+             :pctVal 0.875375373079,
+             :cusip "038336103",
+             :qty 137800}
+            {:title "FIRST HORIZON CORP",
+             :valUSD 23745960,
+             :pctVal 1.159732154614,
+             :cusip "320517105",
+             :qty 1465800}
+            {:title "UST BILLS 0% 05/06/2021",
+             :valUSD 7549492.49,
+             :pctVal 0.368710685593,
+             :cusip "9127965A3",
+             :qty 7550000}
+            {:title "SUNSTONE HOTEL INVS INC",
+             :valUSD 10243034,
+             :pctVal 0.500260923989,
+             :cusip "867892101",
+             :qty 775400}
+            {:title "LAZARD LTD CL A",
+             :valUSD 6643073,
+             :pctVal 0.324441941431,
+             :cusip "N/A",
+             :qty 171700}
+            {:title "JETBLUE AIRWAYS CORP",
+             :valUSD 4620401,
+             :pctVal 0.225656389841,
+             :cusip "477143101",
+             :qty 250700}
+            {:title "SIGNATURE BANK",
+             :valUSD 24432246,
+             :pctVal 1.193249769461,
+             :cusip "82669G104",
+             :qty 111900}
+            {:title "WHIRLPOOL CORP",
+             :valUSD 7530969.6,
+             :pctVal 0.367806043661,
+             :cusip "963320106",
+             :qty 39620}
+            {:title "NVR INC",
+             :valUSD 1.250333352E7,
+             :pctVal 0.610651998192,
+             :cusip "62944T105",
+             :qty 2778}
+            {:title "INVITATION HOMES INC",
+             :valUSD 4682798,
+             :pctVal 0.228703805369,
+             :cusip "46187W107",
+             :qty 160700}
+            {:title "SPROUTS FMRS MKT INC",
+             :valUSD 3818799,
+             :pctVal 0.18650684126,
+             :cusip "85208M102",
+             :qty 180900}
+            {:title "DOUGLAS EMMETT INC REIT",
+             :valUSD 15415425,
+             :pctVal 0.752876028155,
+             :cusip "25960P109",
+             :qty 470700}
+            {:title "MID AMERICA APT CMNTY INC",
+             :valUSD 7221528,
+             :pctVal 0.352693183474,
+             :cusip "59522J103",
+             :qty 53600}
+            {:title "TRIPADVISOR INC",
+             :valUSD 2019534,
+             :pctVal 0.098632294383,
+             :cusip "896945201",
+             :qty 40700}
+            {:title "FLUOR CORP",
+             :valUSD 16384368,
+             :pctVal 0.800198366485,
+             :cusip "343412102",
+             :qty 954800}
+            {:title "NOMAD FOODS LTD",
+             :valUSD 2971396,
+             :pctVal 0.145120411442,
+             :cusip "N/A",
+             :qty 125800}
+            {:title "CORESITE REALTY CORP",
+             :valUSD 14276583,
+             :pctVal 0.697255969567,
+             :cusip "21870Q105",
+             :qty 117300}
+            {:title "PORTLAND GENERAL ELECTRIC CO",
+             :valUSD 6286056,
+             :pctVal 0.307005539843,
+             :cusip "736508847",
+             :qty 149100}
+            {:title "MGIC INVESTMENT CORP",
+             :valUSD 9500400,
+             :pctVal 0.463991321542,
+             :cusip "552848103",
+             :qty 780000}
+            {:title "MATTEL INC",
+             :valUSD 1.74664552E7,
+             :pctVal 0.853046569714,
+             :cusip "577081102",
+             :qty 864676}
+            {:title "Fidelity Cash Central Fund",
+             :valUSD 5.645340702E7,
+             :pctVal 2.757135586795,
+             :cusip "31635A105",
+             :qty 5.6442118597E7}
+            {:title "WARNER MUSIC GRP CORP CL A",
+             :valUSD 1120852,
+             :pctVal 0.054741442542,
+             :cusip "934550203",
+             :qty 31600}
+            {:title "VESPER HEALTHCARE ACQUISITION CORP A",
+             :valUSD 7617600,
+             :pctVal 0.372036997493,
+             :cusip "92538T104",
+             :qty 690000}
+            {:title "VIRTU FINANCIAL INC- CL A",
+             :valUSD 7678413.9,
+             :pctVal 0.375007095786,
+             :cusip "928254101",
+             :qty 281570}
+            {:title "BLACK HILLS CORP",
+             :valUSD 5797680,
+             :pctVal 0.283153678274,
+             :cusip "092113109",
+             :qty 98000}
+            {:title "CIRRUS LOGIC INC",
+             :valUSD 14581374,
+             :pctVal 0.712141698472,
+             :cusip "172755100",
+             :qty 178300}
+            {:title "API GROUP CORP",
+             :valUSD 15786050,
+             :pctVal 0.770977032697,
+             :cusip "00187Y100",
+             :qty 853300}
+            {:title "MOLINA HEALTHCARE INC",
+             :valUSD 23410080,
+             :pctVal 1.14332806583,
+             :cusip "60855R100",
+             :qty 108000}
+            {:title "BLACKBAUD INC",
+             :valUSD 1.079558694E7,
+             :pctVal 0.527247131817,
+             :cusip "09227Q100",
+             :qty 156867}
+            {:title "ALLY FINANCIAL INC",
+             :valUSD 6947100,
+             :pctVal 0.339290357236,
+             :cusip "02005N100",
+             :qty 167400}
+            {:title "BRP GROUP INC",
+             :valUSD 9472960.98,
+             :pctVal 0.46265122353,
+             :cusip "05589G102",
+             :qty 357066}
+            {:title "RENAISSANCERE HLDGS LTD",
+             :valUSD 13425192,
+             :pctVal 0.655674769277,
+             :cusip "N/A",
+             :qty 80400}
+            {:title "AVNET INC",
+             :valUSD 15300333,
+             :pctVal 0.747255034389,
+             :cusip "053807103",
+             :qty 401900}
+            {:title "LEGGETT and PLATT INC",
+             :valUSD 5648465.8,
+             :pctVal 0.275866185763,
+             :cusip "524660107",
+             :qty 130540}
+            {:title "REYNOLDS CONSUMER PRODUCTS INC",
+             :valUSD 2446246,
+             :pctVal 0.119472539509,
+             :cusip "76171L106",
+             :qty 88600}
+            {:title "NIELSEN HOLDINGS PLC",
+             :valUSD 3.492596259E7,
+             :pctVal 1.705753814395,
+             :cusip "N/A",
+             :qty 1558499}
+            {:title "VOYA FINANCIAL INC",
+             :valUSD 8921440,
+             :pctVal 0.435715415736,
+             :cusip "929089100",
+             :qty 148000}
+            {:title "APACHE CORP",
+             :valUSD 2667535.46,
+             :pctVal 0.130280125399,
+             :cusip "037411105",
+             :qty 135202}
+            {:title "VISHAY INTERTECHNOLOGY INC",
+             :valUSD 2587508,
+             :pctVal 0.126371653448,
+             :cusip "928298108",
+             :qty 108400}
+            {:title "FAIRFAX FINL HLDGS LTD SUB VTG",
+             :valUSD 9613763.95,
+             :pctVal 0.469527918841,
+             :cusip "303901102",
+             :qty 23600}
+            {:title "FIRSTCASH INC",
+             :valUSD 6165215.12,
+             :pctVal 0.301103775748,
+             :cusip "33767D105",
+             :qty 97366}
+            {:title "PIRAEUS FINANCIAL HOLDINGS SA",
+             :valUSD 1092156.87,
+             :pctVal 0.053339997204,
+             :cusip "N/A",
+             :qty 1177100}
+            {:title "TANDEM DIABETES CARE INC",
+             :valUSD 9599000,
+             :pctVal 0.468806860288,
+             :cusip "875372203",
+             :qty 100000}
+            {:title "GROCERY OUTLET HOLDING CORP",
+             :valUSD 2248799.16,
+             :pctVal 0.109829406565,
+             :cusip "39874R101",
+             :qty 62484}
+            {:title "ASSOCIATED BANC CORP",
+             :valUSD 8176870,
+             :pctVal 0.399351260723,
+             :cusip "045487105",
+             :qty 405800}
+            {:title "EVERGY INC",
+             :valUSD 5586368.95,
+             :pctVal 0.272833429301,
+             :cusip "30034W106",
+             :qty 104165}
+            {:title "DUKE REALTY CORP REIT",
+             :valUSD 1.37953545E7,
+             :pctVal 0.673753185718,
+             :cusip "264411505",
+             :qty 351474}
+            {:title "ALLISON TRANSMISSION HLDGS INC",
+             :valUSD 1.966011696E7,
+             :pctVal 0.960183113337,
+             :cusip "01973R101",
+             :qty 518463}
+            {:title "ESSENTIAL UTILITIES INC",
+             :valUSD 1.14073029E7,
+             :pctVal 0.557122810387,
+             :cusip "29670G102",
+             :qty 271215}
+            {:title "MRC GLOBAL INC",
+             :valUSD 2.53934582E7,
+             :pctVal 1.240194542203,
+             :cusip "55345K103",
+             :qty 2905430}
+            {:title "MDU RESOURCES GROUP INC",
+             :valUSD 7602145.9,
+             :pctVal 0.371282232611,
+             :cusip "552690109",
+             :qty 270539}
+            {:title "EAGLE MATERIALS INC",
+             :valUSD 15371588,
+             :pctVal 0.750735066979,
+             :cusip "26969P108",
+             :qty 122600}
+            {:title "VALVOLINE INC",
+             :valUSD 9454947.84,
+             :pctVal 0.461771477348,
+             :cusip "92047W101",
+             :qty 378804}
+            {:title "LIVE OAK BANCSHARES INC",
+             :valUSD 5511000,
+             :pctVal 0.26915247495,
+             :cusip "53803X105",
+             :qty 100000}
+            {:title "NANOSONICS LTD",
+             :valUSD 10114728,
+             :pctVal 0.493994569887,
+             :cusip "N/A",
+             :qty 2180000}
+            {:title "NOW INC",
+             :valUSD 1.530822048E7,
+             :pctVal 0.747640252092,
+             :cusip "67011P100",
+             :qty 1440096}
+            {:title "JELD-WEN HOLDING INC",
+             :valUSD 2.61824325E7,
+             :pctVal 1.278727364834,
+             :cusip "47580P103",
+             :qty 883050}
+            {:title "PTC INC",
+             :valUSD 20773798,
+             :pctVal 1.014574332394,
+             :cusip "69370C100",
+             :qty 151700}
+            {:title "CRANE CO",
+             :valUSD 7840910,
+             :pctVal 0.382943264809,
+             :cusip "224399105",
+             :qty 93500}
+            {:title "LOUISIANA PACIFIC CORP",
+             :valUSD 14773383,
+             :pctVal 0.721519252013,
+             :cusip "546347105",
+             :qty 310300}
+            {:title "Fidelity Securities Lending Cash Central Fund",
+             :valUSD 1.073514928E7,
+             :pctVal 0.52429540876,
+             :cusip "31635A303",
+             :qty 1.073407587E7}
+            {:title "LIBERTY FORMULA ONE-C",
+             :valUSD 974580,
+             :pctVal 0.047597644535,
+             :cusip "531229854",
+             :qty 22200}
+            {:title "UDR INC",
+             :valUSD 1.142726871E7,
+             :pctVal 0.558097923284,
+             :cusip "902653104",
+             :qty 277563}
+            {:title "ASSURANT INC",
+             :valUSD 13837606,
+             :pctVal 0.675816712446,
+             :cusip "04621X108",
+             :qty 112300}
+            {:title "BJS WHSL CLUB HLDGS INC",
+             :valUSD 1.24640369E7,
+             :pctVal 0.608732785249,
+             :cusip "05550J101",
+             :qty 310205}
+            {:title "KIRBY CORP",
+             :valUSD 24686176,
+             :pctVal 1.205651491102,
+             :cusip "497266106",
+             :qty 394600}
+            {:title "S4 CAPITAL PLC",
+             :valUSD 674253.07,
+             :pctVal 0.03292993695,
+             :cusip "N/A",
+             :qty 109000}
+            {:title "GOLDEN OCEAN GROUP LTD",
+             :valUSD 2679272.5,
+             :pctVal 0.130853352284,
+             :cusip "N/A",
+             :qty 439225}
+            {:title "BUNGE LIMITED",
+             :valUSD 1707734,
+             :pctVal 0.083404251979,
+             :cusip "N/A",
+             :qty 22300}
+            {:title "NORDSTROM INC",
+             :valUSD 9740679.3,
+             :pctVal 0.475726354798,
+             :cusip "655664100",
+             :qty 267234}
+            {:title "CABLE ONE INC",
+             :valUSD 7850885,
+             :pctVal 0.383430435184,
+             :cusip "12685J105",
+             :qty 4100}
+            {:title "RPM INTERNATIONAL INC",
+             :valUSD 12949464,
+             :pctVal 0.632440625092,
+             :cusip "749685103",
+             :qty 162600}
+            {:title "DARDEN RESTAURANTS INC",
+             :valUSD 1.125488015E7,
+             :pctVal 0.549678615069,
+             :cusip "237194105",
+             :qty 81955}
+            {:title "NORTONLIFELOCK INC",
+             :valUSD 7265524,
+             :pctVal 0.354841910073,
+             :cusip "668771108",
+             :qty 372400}
+            {:title "S and P MID 400 EMINI FUT MAR21 FAH1",
+             :valUSD 907000.32,
+             :pctVal 0.044297111397,
+             :cusip "N/A",
+             :qty 115}
+            {:title "ASHLAND GLOBAL HOLDINGS INC",
+             :valUSD 13778856,
+             :pctVal 0.672947413244,
+             :cusip "044186104",
+             :qty 163800}
+            {:title "LIBERTY OILFIELD SERVICES INC CL A",
+             :valUSD 2006705.4,
+             :pctVal 0.098005756651,
+             :cusip "53115L104",
+             :qty 171660}
+            {:title "GENCO SHIPPING and TRADING LTD",
+             :valUSD 4879350,
+             :pctVal 0.238303235102,
+             :cusip "N/A",
+             :qty 464700}
+            {:title "MOHAWK INDUSTRIES INC",
+             :valUSD 1.51611336E7,
+             :pctVal 0.740456656051,
+             :cusip "608190104",
+             :qty 86640}
+            {:title "TALANX AKTIENGESELLSCHAFT",
+             :valUSD 3999775.97,
+             :pctVal 0.195345599995,
+             :cusip "N/A",
+             :qty 96200}
+            {:title "US FOODS HOLDING CORP",
+             :valUSD 1.27617292E7,
+             :pctVal 0.623271819784,
+             :cusip "912008109",
+             :qty 350020}
+            {:title "INSULET CORP",
+             :valUSD 15546000,
+             :pctVal 0.759253198254,
+             :cusip "45784P101",
+             :qty 60000}
+            {:title "PACWEST BANCORP",
+             :valUSD 27970032,
+             :pctVal 1.366032178778,
+             :cusip "695263103",
+             :qty 771800}
+            {:title "CURTISS WRIGHT CORPORATION",
+             :valUSD 34240851,
+             :pctVal 1.672293556716,
+             :cusip "231561101",
+             :qty 309900}
+            {:title "WYNDHAM HOTELS and RESORTS INC",
+             :valUSD 1.271869824E7,
+             :pctVal 0.621170224904,
+             :cusip "98311A105",
+             :qty 194833}
+            {:title "BORGWARNER INC",
+             :valUSD 9776250,
+             :pctVal 0.47746359703,
+             :cusip "099724106",
+             :qty 217250}
+            {:title "AMERICAN FINL GROUP INC OHIO",
+             :valUSD 2.36791841E7,
+             :pctVal 1.156470877395,
+             :cusip "025932104",
+             :qty 221923}
+            {:title "NEW YORK TIMES CO CL A",
+             :valUSD 5014660,
+             :pctVal 0.244911658507,
+             :cusip "650111107",
+             :qty 98000}
+            {:title "NUANCE COMMUNICATIONS INC",
+             :valUSD 10704000,
+             :pctVal 0.522774104857,
+             :cusip "67020Y100",
+             :qty 240000}
+            {:title "GUIDEWIRE SOFTWARE INC",
+             :valUSD 6115549,
+             :pctVal 0.298678125391,
+             :cusip "40171V100",
+             :qty 55100}
+            {:title "MASIMO CORP",
+             :valUSD 20760444,
+             :pctVal 1.01392213458,
+             :cusip "574795100",
+             :qty 82800}
+            {:title "SPIRIT AIRLINES INC",
+             :valUSD 9856236,
+             :pctVal 0.481370044111,
+             :cusip "848577102",
+             :qty 274700}
+            {:title "AKAMAI TECHNOLOGIES INC",
+             :valUSD 8306550,
+             :pctVal 0.405684719797,
+             :cusip "00971T101",
+             :qty 87900}
+            {:title "LAMAR ADVERTISING CO CL A",
+             :valUSD 7793100,
+             :pctVal 0.380608265748,
+             :cusip "512816109",
+             :qty 90000}
+            {:title "SOUTHWEST GAS HOLDINGS INC",
+             :valUSD 4988000,
+             :pctVal 0.243609607159,
+             :cusip "844895102",
+             :qty 80000}
+            {:title "RALPH LAUREN CORP",
+             :valUSD 6939214.52,
+             :pctVal 0.338905237211,
+             :cusip "751212101",
+             :qty 59269})}

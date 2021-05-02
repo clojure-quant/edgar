@@ -18782,3 +18782,73 @@ nil
 clj꞉edgar.nport꞉> 
 nil
 clj꞉edgar.nport꞉> 
+; Syntax error compiling at (src/edgar/portfolio.clj:26:13).
+; Unable to resolve symbol: p-file in this context
+clj꞉edgar.portfolio꞉> 
+; Syntax error compiling at (src/edgar/portfolio.clj:26:13).
+; Unable to resolve symbol: p-file in this context
+clj꞉edgar.portfolio꞉> 
+; Syntax error compiling at (src/edgar/portfolio.clj:21:13).
+; Unable to resolve symbol: p-file in this context
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/n-port
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/extract-pf
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/extract-pf
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/extract-pf
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+; Syntax error macroexpanding clojure.core/ns at (src/edgar/portfolio.clj:1:1).
+; () - failed: Insufficient input at: [:ns-clauses :import :classes :package-list :classes] spec: :clojure.core.specs.alpha/package-list
+[java.text] - failed: simple-symbol? at: [:ns-clauses :import :classes :class] spec: :clojure.core.specs.alpha/import-list
+:import - failed: #{:refer-clojure} at: [:ns-clauses :refer-clojure :clause] spec: :clojure.core.specs.alpha/ns-refer-clojure
+:import - failed: #{:require} at: [:ns-clauses :require :clause] spec: :clojure.core.specs.alpha/ns-require
+:import - failed: #{:use} at: [:ns-clauses :use :clause] spec: :clojure.core.specs.alpha/ns-use
+:import - failed: #{:refer} at: [:ns-clauses :refer :clause] spec: :clojure.core.specs.alpha/ns-refer
+:import - failed: #{:load} at: [:ns-clauses :load :clause] spec: :clojure.core.specs.alpha/ns-load
+:import - failed: #{:gen-class} at: [:ns-clauses :gen-class :clause] spec: :clojure.core.specs.alpha/ns-gen-class
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/read-num
+clj꞉edgar.portfolio꞉> 
+6530379.26
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+; Execution error (ArityException) at edgar.portfolio/holding (form-init4530531878379315836.clj:29).
+; Wrong number of args (3) passed to: clojure.lang.PersistentArrayMap
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/extract-pf
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
+#'edgar.portfolio/holding
+clj꞉edgar.portfolio꞉> 
+nil
+clj꞉edgar.portfolio꞉> 
