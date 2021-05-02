@@ -38,10 +38,12 @@
         cik (get-in raw [:edgarSubmission :headerData :filerInfo :filer :issuerCredentials :cik])
         ginfo (get-in raw [:edgarSubmission :formData :genInfo])
         nav (get-in raw [:edgarSubmission :formData :fundInfo :totAssets])
-        {:keys [seriesName repPdEnd repPdDate]} ginfo
+        {:keys [seriesId seriesName regName repPdEnd repPdDate]} ginfo
         pf (map holding pf)
         d {:fund seriesName
+           :fid seriesId
            :cik cik
+           :advisor regName
            :date-filed repPdDate
            :date-report repPdEnd
            :nav (read-num nav)

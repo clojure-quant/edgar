@@ -1,11 +1,11 @@
 (ns edgar.demo
   (:require
+   [clojure.core.async :refer [thread go]]
    [edgar.edn :refer [edn-read edn-save]]
    [edgar.download :refer [dl-filing dl-primary]]
    [edgar.index :refer [filings-index]]
-   [edgar.filing :refer [ parse-filing]]
-   [edgar.portfolio :refer [extract-pf-str]]
-   )
+   [edgar.filing :refer [parse-filing]]
+   [edgar.portfolio :refer [extract-pf-str]])
   ;(:gen-class)
   )
 
@@ -20,8 +20,7 @@
     (edn-save "report/index.edn" filings)
     filings
 ;(take 2 filings )
-    )
-  )
+    ))
 
 
 (defn filing-file [{:keys [cik no]}]
@@ -39,26 +38,27 @@
       (parse-filing body))))
 
 (defn get-nport [f]
+  (println "get-nport " f)
   (let [body (dl-primary f)]
     (when body
       (spit (nport-file-xml f) body)
       (let [pf (extract-pf-str body)]
-        (edn-save (nport-file f) pf)
-        )
-      )))
+        (edn-save (nport-file f) pf)))))
 
 (defn -main
   []
- 
+
   (get-nport {:cik 1004655
               :no "0001752724-21-069935"})
 
-  (->> (get-filings) 
-      (map get-nport)
-      )
+  (go  (thread
+         (println "start..")
+         (->> (get-filings)
+              (map get-nport))
+         (println "done.")))
+
 
   ;
-)
-           
-     
-    
+  )
+
+
