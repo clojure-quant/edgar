@@ -1,36 +1,39 @@
 (ns edgar.nport
-   (:require [clojure.xml :as xml]
-             [clojure.java.io]
-             [clojure.data.xml :refer [parse-str]]
-            ; [tupelo.core tupelo.forest]
-             )
+  (:require
+   
+  [edgar.xml :refer [p-str p-file]]
+   [edgar.helper]
+   ))
+
+
+(def n-port #{:borrowers :monthlyTotReturns :invstOrSecs})
+
+;:valUSD "6530379.26000000"
+;:pctVal "0.318938076609"
+;:title "EXLSERVICE HOLDINGS INC"
+;:invCountry "US"
+;:balance "77173.00000000"
+;:isRestrictedSec "N"
+;:cusip "302081104"
+
+
+(defn holding [h]
+  (select-keys h [:title :balance :valUSD :pctVal])
   )
 
+(defn extract-pf []
+  (let [raw (p-file n-port "demodata/N-PORT/primary_doc.xml")
+        pf (get-in raw [:edgarSubmission :formData :invstOrSecs])
 
-(defn parse [s]
-  (let [f (clojure.java.io/input-stream "myfile.txt")] 
-  (clojure.xml/parse f)
-  ;(parse-str s)
-  ))
+        pf (map holding pf)
+        ]
+    
 
 
-(def d (parse  "demodata/N-PORT/primary_doc.xml"))
+    (edgar.helper/save "report/test.edn" pf)
+ ))
 
-d
-; (slurp
+(extract-pf)
 
-; zippers
-; https://blog.korny.info/2014/03/08/xml-for-fun-and-profit.html
 
-(defn child-of [node tag]
-  (filter #(= tag (:tag %)) (:content node)
-  ))
 
-(let [h (child-of d :headerData)
-      f (first (child-of d :formData))
-
-      g (child-of f :genInfo)
-      ]
-  f
-  
-  )
