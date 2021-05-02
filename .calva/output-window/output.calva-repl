@@ -18852,3 +18852,40 @@ clj꞉edgar.portfolio꞉> 
 clj꞉edgar.portfolio꞉> 
 nil
 clj꞉edgar.portfolio꞉> 
+dl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x4fde8916 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076713}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076713/primary_doc.xml
+dl success.
+(nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x28183585 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076714}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076714/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x4889a083 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076715}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076715/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x2b76b939 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076716}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076716/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x10db1378 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076717}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076717/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x7906b8fb 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076718}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076718/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x7c0e82e0 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076719}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076719/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x622f5329 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076720}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076720/primary_doc.xml
+dl success.
+
+ nildl primary:  {form NPORT-P, :date #object[java.time.LocalDate 0x2aa7ccc7 2020-12-28], :cik 100334, :name AMERICAN CENTURY MUTUAL FUNDS, INC., :no 0001145549-20-076721}
+dl url:  https://www.sec.gov/Archives/edgar/data/100334/000114554920076721/primary_doc.xml
+dl success.
+
+ nil)
+clj꞉edgar.demo꞉> 

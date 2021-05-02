@@ -1,6 +1,5 @@
 (ns edgar.index
   (:require
-   [edgar.helper]
    [clojure.set :refer [rename-keys]]
    [tech.v3.dataset :as ds]))
 
@@ -10,16 +9,16 @@
       (nth 2)))
 
 (defn load-index [filename]
-  (let [a (ds/->dataset filename
+  (let [d (ds/->dataset filename
                         {:header-row? false
                          :file-type :csv
                          :separator \|})]
-  (-> a
-      (assoc "date" (a "column-3"))
-      (assoc "form" (a "column-2"))
-      (assoc "cik" (a "column-0"))
-      (assoc "no" (map filing-no (a "column-5")))
-      (assoc "Name" (a "column-1"))
+  (-> d
+      (assoc "date" (d "column-3"))
+      (assoc "form" (d "column-2"))
+      (assoc "cik" (d "column-0"))
+      (assoc "no" (map filing-no (d "column-5")))
+      (assoc "Name" (d "column-1"))
       (dissoc "column-0")
       (dissoc "column-1")
       (dissoc "column-2")
@@ -28,11 +27,17 @@
       (dissoc "column-5"))
   ))
 
+(defn filter-cik [cik d]
+  (if cik
+    (ds/filter-column d "cik" #(= cik %))
+    d
+  ))
 
-(defn p-filings [file-name]
-  (let [a (load-index file-name)]
+(defn filings-index [file-name form & [cik]]
+  (let [d (load-index file-name)]
   (->> 
-     (ds/filter-column a "form" #(= "NPORT-P" %))
+     (ds/filter-column d "form" #(= form %))
+     (filter-cik cik)
      (ds/mapseq-reader)
     ;count
     ; (doall)
@@ -43,13 +48,21 @@
                            "Name" :name
                            ;"form" :f
                            }))
-     (edgar.helper/save "report/index.edn")
+    
      )))
 
 (comment
   
-(p-filings "data/index/2021-QTR2.tsv")
+(filings-index "data/index/2021-QTR2.tsv" 
+               "NPORT-P"
+               1004655
+               )
   
+(rename-keys {"cik" 1
+              "form" 2} {"cik" :cik
+                           "form" :form
+               })
+
 
 (println (ds/head a))
 (ds/brief a)

@@ -70,6 +70,12 @@
    (let [p (partial node-tree vecs)]
   (-> f io/file xml/parse p)))
 
+(defn p-stream [vecs stream]
+  (let [x (xml/parse stream)]
+    (node-tree vecs x)
+    ))
+
+
 (comment
 
   (defn p [str]  

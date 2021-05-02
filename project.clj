@@ -25,6 +25,9 @@
                  [hickory "0.7.1"] ; html parser
                   [org.clojure/data.zip "0.1.1"]
                  [clj-http "3.12.0"]
+                 [throttler "1.0.0" ; api rate-limits 
+                  :exclusions  [[org.clojure/clojure]
+                                [org.clojure/core.async]]]; has very old core.async
                  ]
 
   :target-path  "target/jar"

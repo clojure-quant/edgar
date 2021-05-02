@@ -2,11 +2,10 @@
   (:require
    [clojure.set :refer [rename-keys]]
    [edgar.xml :refer [p-str p-file]]
-   [edgar.helper])
+   [edgar.edn])
   (:import
    [java.text NumberFormat]
-   [java.util Locale])
-  )
+   [java.util Locale]))
 
 (def n-port #{:borrowers :monthlyTotReturns :invstOrSecs})
 
@@ -22,24 +21,20 @@
   (let [format (NumberFormat/getNumberInstance Locale/US)]
     (.parse format s)))
 
-(read-num "6530379.26000000")
+
 
 (defn holding [h]
   (let [h (select-keys h [:title :balance :valUSD :pctVal :cusip])
         {:keys [balance valUSD pctVal]} h]
-    
-    (-> (assoc h 
-           :balance (read-num balance)
-           :valUSD (read-num valUSD)
-           :pctVal (read-num pctVal)
-           
-           )
-        (rename-keys {:balance :qty}))
-        ))
 
-(defn extract-pf []
-  (let [raw (p-file n-port "demodata/N-PORT/primary_doc.xml")
-        pf (get-in raw [:edgarSubmission :formData :invstOrSecs])
+    (-> (assoc h
+               :balance (read-num balance)
+               :valUSD (read-num valUSD)
+               :pctVal (read-num pctVal))
+        (rename-keys {:balance :qty}))))
+
+(defn extract [raw]
+  (let [pf (get-in raw [:edgarSubmission :formData :invstOrSecs])
         cik (get-in raw [:edgarSubmission :headerData :filerInfo :filer :issuerCredentials :cik])
         ginfo (get-in raw [:edgarSubmission :formData :genInfo])
         nav (get-in raw [:edgarSubmission :formData :fundInfo :totAssets])
@@ -51,9 +46,30 @@
            :date-report repPdEnd
            :nav (read-num nav)
            :holdings pf}]
-    (edgar.helper/save "report/test.edn" d)))
+    d
+    ))
 
-(extract-pf)
+(defn extract-pf-file [filename]
+  (let [raw (p-file n-port filename)
+        pf (extract raw)]
+    pf))
+
+(defn extract-pf-str [str]
+  (let [raw (p-str n-port str)
+        pf (extract raw)]
+    pf))
+
+
+(comment
+  (read-num "6530379.26000000")
+
+  (->>  (extract-pf-file "demodata/N-PORT/primary_doc.xml")
+        (edgar.edn/edn-save "report/test2.edn"))
+
+;  
+  )
+
+
 
 
 
