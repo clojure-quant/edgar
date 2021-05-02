@@ -1,7 +1,6 @@
 (ns edgar.download
   (:require
-   [clj-http.client :as client])
-  )
+   [clj-http.client :as client]))
 
 ;https://www.sec.gov/Archives/edgar/data/320193/000032019321000056/0000320193-21-000056-index.htm  
 
@@ -14,6 +13,11 @@
 
 (defn filing-file [{:keys [cik no]}]
   (str "data/filings/" cik "-" no "-index.html"))
+
+
+; https://www.sec.gov/Archives/edgar/data/51143/
+; /Archives/edgar/data/1004655/000175272421069935/primary_doc.xml
+; https://www.sec.gov/Archives/edgar/data/51143/000156218021002520/primarydocument.xml
 
 (defn dl-filing [f]
   (println "dl filing: " f)

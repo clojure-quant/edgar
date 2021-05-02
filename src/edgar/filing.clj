@@ -81,19 +81,22 @@
          )
   )
 
-(defn fload [id]
-  (->> (str "demodata/filings/" id ".html")
+(defn filing-file [{:keys [cik no]}]
+  (str "data/filings/" cik "-" no "-index.html"))
+
+(defn load-filing [f]
+  (->> f
+       filing-file
        slurp
-       h/parse
-     ;h/as-hiccup
-       h/as-hickory))
-
-
-
+       parse-filing))
 
 
 (comment
 
+  (load-filing {:cik 1004655
+    :no "0001752724-21-069935"})
+
+  ; /Archives/edgar/data/1004655/000175272421069935/primary_doc.xml
 
   (elrc ["1"
          {:content ["4"]}
