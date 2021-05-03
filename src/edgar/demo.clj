@@ -62,7 +62,8 @@
   (go  (<! (thread
              (println "start..")
              ;(get-nport-index 916488 "data/index/2018-QTR4.tsv" )
-             (get-nport-all 916488)
+             ;(get-nport-all 916488)
+              (get-nport-all nil)
              ;
              ))
        (println "done.")))
@@ -82,3 +83,4 @@
   )
 
 
+get-nport  {form NPORT-P, :date #object[java.time.LocalDate 0x37fbf3a5 2019-11-22], :cik 1003239, :name SEASONS SERIES TRUST, :no 0001752724-19-175480}
