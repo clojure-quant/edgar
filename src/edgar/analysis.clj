@@ -10,13 +10,13 @@
     (edn-read f)))
 
 (defn load-x []
-  (let [p (load-one {:cik "100334"
+  (let [c (load-one {:cik "100334"
                      :no "0001145549-20-036689"
                      :fid "S000006192"})
-        c (load-one {:cik "100334"
+        n (load-one {:cik "100334"
                      :no "0001145549-20-076715"
                      :fid "S000006192"})
-        n (load-one {:cik "100334"
+        p (load-one {:cik "100334"
                      :no "0001145549-20-016610"
                      :fid "S000006192"})]
     {:p p
@@ -55,13 +55,29 @@
         ]
     {:cusip (:cusip itm)
      :title (:title itm)
-     :diff-c (- c-qty p-qty)
+     :diff-p (- c-qty p-qty)
      :diff-n (- n-qty c-qty)
      }
     )
   )
 
 
+(defn stats [itms]
+  (let [c-tot (count itms)
+        n-pos (count (filter #(> (:diff-n %) 0) itms))
+        n-neg (- c-tot n-pos)
+        ]
+   {:tot c-tot 
+    :n-neg n-neg
+    :n-pos n-pos}
+  ))
+
+(defn stats-all [itms]
+  {:all (stats itms)
+   :p-pos (stats (filter #(> (:diff-p %) 0) itms))
+   :p-neg (stats (filter #(< (:diff-p %) 0) itms))
+   }
+  )
 
 ; :cusip "N/A"
 
@@ -71,16 +87,26 @@
 
 
 
+(defn qty-report []
+  (let [reps (load-x)
+        stats (->>
+               reps
+               (match-table)
+               (vals)
+               (filter has-p-c-n)
+               (map chg)
+               (stats-all))
+        ]
+      {:advisor (get-in reps [:p :advisor])
+       :fund (get-in reps [:p :fund])
+       :p-date (get-in reps [:p :date-filed])
+       :c-date (get-in reps [:c :date-filed])
+       :n-date (get-in reps [:n :date-filed])
+       :stats stats}
+    ))
 
-(->> (load-x)
-      ;vals
-     ;(map info  )
-     (match-table)
-     (vals)
-     (filter has-p-c-n)
-     (map chg)
-     (filter #(> (:diff-c %) 0))
-     )
+
+(qty-report)
 
 
 
