@@ -61,11 +61,16 @@
     )
   )
 
+
+
 ; :cusip "N/A"
 
 (defn info [pf]
   {:nav (:nav pf)
    :ct (count (:holdings pf))})
+
+
+
 
 (->> (load-x)
       ;vals
@@ -74,6 +79,7 @@
      (vals)
      (filter has-p-c-n)
      (map chg)
+     (filter #(> (:diff-c %) 0))
      )
 
 
