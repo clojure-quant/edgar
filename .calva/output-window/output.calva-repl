@@ -18889,3 +18889,7 @@ dl success.
 
  nil)
 clj꞉edgar.demo꞉> 
+downloading data.. #: 0
+getting index.. data/index/2018-QTR3.tsv
+downloading data.. #: 0
+getting index.. data/index/2018-QTR4.tsv

@@ -41,7 +41,7 @@
      (ds/mapseq-reader)
     ;count
     ; (doall)
-      (take 100)
+      (take 100000)
      (map #(rename-keys % {"cik" :cik
                            "no" :no
                            "date" :date

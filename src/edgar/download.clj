@@ -28,6 +28,7 @@
 ; Current max request rate: 10 requests/second.
 (def dl-t (throttler.core/throttle-fn dl 5 :second))
 
+;(def dl-t dl)
 
 ;https://www.sec.gov/Archives/edgar/data/320193/000032019321000056/0000320193-21-000056-index.htm  
 ; https://www.sec.gov/Archives/edgar/data/51143/
