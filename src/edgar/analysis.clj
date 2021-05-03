@@ -1,7 +1,7 @@
 (ns edgar.analysis
   (:require
    [clojure.java.io]
-   [edgar.edn :refer [edn-read]])
+   [edgar.edn :refer [edn-read edn-save]])
   (:import java.io.File))
 
 (defn nport-file [{:keys [cik no]} {:keys [fid]}]
@@ -14,12 +14,14 @@
 (defn add-holding [pos indexed h]
   (let [k (:cusip h)]
     (let [i (or (get indexed k)
-                (select-keys h [:title :cusip]))
-          m (assoc i pos (dissoc h :title :cusip))]
+                (select-keys h [:title :cusip :assetCat :issuerCat :invCountry]))
+          m (assoc i pos (dissoc h :title :cusip :assetCat :issuerCat :invCountry))]
       (assoc indexed k m))))
 
 (defn match [indexed pf pos]
-  (let [holdings-pf (:holdings pf)]
+  (let [holdings-pf (:holdings pf)
+        holdings-pf (filter #(= "EC" (:assetCat %)) holdings-pf)
+        ]
     (reduce (partial add-holding pos)
             indexed
             holdings-pf)))
@@ -66,21 +68,29 @@
    :ct (count (:holdings pf))})
 
 
+(defn analysis-file [{:keys [fund c-date]}]
+  (str "data/analysis/" fund "_" c-date ".edn"))
 
 (defn qty-report [reps]
-  (let [stats (->>
+  (let [table (->>
                reps
                (match-table)
                (vals)
-               (filter has-p-c-n)
+               (filter has-p-c-n))
+        stats (->> table
                (map chg)
-               (stats-all))]
-    {:advisor (get-in reps [:p :advisor])
-     :fund (get-in reps [:p :fund])
-     :p-date (get-in reps [:p :date-filed])
-     :c-date (get-in reps [:c :date-filed])
-     :n-date (get-in reps [:n :date-filed])
-     :stats stats}))
+               (stats-all))
+        report {:advisor (get-in reps [:p :advisor])
+               :fund (get-in reps [:p :fund])
+               :p-date (get-in reps [:p :date-filed])
+               :c-date (get-in reps [:c :date-filed])
+               :n-date (get-in reps [:n :date-filed])
+               :stats stats}
+        
+        ]
+    (edn-save (analysis-file report) (assoc report :matrix table))
+    report
+    ))
 
 ; report lister
 
@@ -151,6 +161,7 @@
    "S000008749"
    )
 
+  ; :assetCat "EC"
 
   ;
   )
