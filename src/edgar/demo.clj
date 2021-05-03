@@ -34,21 +34,22 @@
         (edn-save (nport-file f pf) pf)))))
 
 
-(defn get-nport-index [filename]
+(defn get-nport-index [cik filename]
   (println "getting index.." filename)
-  (let [filings (filings-index filename  "NPORT-P"  1022804)]; 100334
+  (let [filings (filings-index filename "NPORT-P" cik)]
     (edn-save "data/index.edn" filings)
     (println "downloading data.. #:" (count filings))
     (doall (map get-nport filings))))
 
 
-(defn get-nport-all []
-  (doall (for [year [2018 2019 2020]
+
+(defn get-nport-all [cik]
+  (doall (for [year [2019 2020 2021]
                q [1 2 3 4]]
      ; "data/index/2020-QTR4.tsv"
      ; "data/index/2021-QTR1.tsv"
            (let [filename (str "data/index/" year "-QTR" q ".tsv")]
-             (get-nport-index filename)))))
+             (get-nport-index cik filename)))))
 
 
 
@@ -60,8 +61,8 @@
 (defn job2 []
   (go  (<! (thread
              (println "start..")
-             ;(get-nport-index "data/index/2020-QTR4.tsv")
-             (get-nport-all)
+             ;(get-nport-index 916488 "data/index/2018-QTR4.tsv" )
+             (get-nport-all 916488)
              ;
              ))
        (println "done.")))

@@ -22,9 +22,14 @@
     (.parse format s)))
 
 
-
 (defn holding [h]
-  (let [h (select-keys h [:title :balance :valUSD :pctVal :cusip])
+  (let [h (select-keys h [:title 
+                          :balance :valUSD :pctVal 
+                          :cusip
+                          :assetCat
+                          :issuerCat
+                          :invCountry
+                          ])
         {:keys [balance valUSD pctVal]} h]
 
     (-> (assoc h
