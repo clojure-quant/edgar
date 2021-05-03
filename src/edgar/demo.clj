@@ -66,27 +66,7 @@
              ))
        (println "done.")))
 
-(def re-nport #"(.*)_(.*)_(.*)\.edn")
-(defn nport-info [f]
-  (let [s (.getName f)
-        m (re-find re-nport s)
-        [_ cik no fid] m]
-    {:cik cik
-     :no no
-     :fid fid}))
 
-(defn f []
-  (let [dir (clojure.java.io/file "data/nport")
-        files (.listFiles dir)
-        f (first files)
-        
-        ]
-    (->>
-    (map nport-info files)
-    (sort-by :fid)
-     (filter #(= "S000006192" (:fid %))) 
-    ;(.getName f)
-    )))
 
 (defn -main []
 
