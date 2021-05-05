@@ -19,7 +19,7 @@
 ;:cusip "302081104"
 
 (defn read-num [s]
-  (if (= s "N/A")
+  (if (or (nil? s) (= s "N/A"))
     0
   (let [format (NumberFormat/getNumberInstance Locale/US)
         s (str/trim s)
@@ -52,7 +52,7 @@
         pf (map holding pf)
         d {:fund seriesName
            :sid seriesId
-           :cik (long (Integer/parseInt cik))
+           :cik (if (str/blank? cik) 0 (long (Integer/parseInt cik)))
            :advisor regName
            :date-filed repPdDate
            :date-report repPdEnd

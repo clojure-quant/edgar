@@ -53,11 +53,22 @@
 
 ; db.type/instant 	java.util.Date
 
-(when-not (d/database-exists? cfg)
-  (d/create-database cfg))
+(defn connect! []
+  ;(if (d/database-exists? cfg)
+  (println "connecting to existing db..")
+  (def conn (d/connect cfg)))
 
-(def conn (d/connect cfg))
-(d/transact conn schema)
+(defn close! []
+ (d/release conn))
+
+(defn create! []
+  ;(if (d/database-exists? cfg)
+  (println "creating db..")
+  (d/delete-database cfg)
+  (d/create-database cfg)
+  (def conn (d/connect cfg))
+  (println "creating schema..")
+  (d/transact conn schema))
 
 
 (defn add-report [{:keys [cik advisor
@@ -65,7 +76,7 @@
                           no date-filed date-report]}]
   (d/transact conn [{:manager/cik cik
                      :manager/name advisor}
-                     {:fund/sid sid
+                    {:fund/sid sid
                      :fund/name fund}
                     {:report/no no
                      :report/cik cik
@@ -73,16 +84,14 @@
                      :report/date-filed  date-filed ; (jt/local-date 2021 02 01)
                      :report/date-report date-report
                      ;:report/date-saved (java.util.Date.)
-                    }
+                     }
                     {:manager/cik cik
                      :manager/_funds [:fund/sid sid]}
-                     
-                    {:fund/sid sid
-                     :fund/_reports [:report/no no]}
-                    ]))
 
-;(d/entity @conn [:fund/sid "S000006198"])
-;(d/entity @conn [:report/no "xx458"])
+                    {:fund/sid sid
+                     :fund/_reports [:report/no no]}]))
+
+
 
 (defn report-existing? [no]
   (let [s (d/q '[:find ?e
@@ -90,33 +99,20 @@
                  :where [?e :report/no ?no]]
                @conn
                no)]
-    (not (empty? s))
-    ))
+    (not (empty? s))))
 
 #_(defn reports-for-fund [sid]
-  (d/pull @conn
-          '[*]
-          [:report/sid sid]))
+    (d/pull @conn
+            '[*]
+            [:report/sid sid]))
 
 (defn reports-for-fund [sid]
- (d/q '[:find ?report ; ?fund
-        :in $ ?sid
-        :where [?fund  :fund/sid ?sid]
-               [?report :fund/reports ?fund]]
-      @conn
-      sid))
-
-(d/q '[:find ?report ; ?fund
-       :in $ ?sid
-       :where
-       [?fund :fund/sid ?sid] ; lookup db id for report
-       ;[?fund :manager/funds ?sid]
-       ;[?fund :fund/name ?n]
-       [?report :fund/reports ?fund]]
-     @conn
-     "S000006198")
-
-
+  (d/q '[:find ?report ; ?fund
+         :in $ ?sid
+         :where [?fund  :fund/sid ?sid]
+         [?report :fund/reports ?fund]]
+       @conn
+       sid))
 
 (defn funds-of-manager [cik]
   (d/q '[:find  ?funds ; ?manager
@@ -131,7 +127,6 @@
   (d/pull @conn
           '[*]
           [:manager/cik cik]))
-
 
 (defn fund-list []
   (d/q '[:find ?id ?name
@@ -151,7 +146,6 @@
          [?id :report/no ?no]]
        @conn))
 
-
 (defn report-no [no]
   (d/pull @conn
           '[*]
@@ -162,87 +156,54 @@
           '[*]
           [:fund/sid sid]))
 
-
-
-(d/q '[:find ?e
-       :where [?e :report/no "xx123"]]
-     @conn)
-
-
-
 (comment
 
-  (d/release conn)
-  (d/delete-database cfg)
-
-  (add-report {:cik 100334
-               :advisor "American Century Mutual Funds, Inc."
-               :fund " uuuuu Equity Fund"
-               :sid "S000004198"
-               :no "xx458"
-               :date-filed "2019-10-31"
-               :date-report "2019-10-31"})
-
-  (add-report {:cik 100334
-               :advisor "American Century Mutual Funds, Inc."
-               :fund " iiiii Equity Fund"
-               :sid "S000006198"
-               :no "xx499"
-               :date-filed "2019-10-31"
-               :date-report "2019-10-31"})
+ 
   
-   (add-report {:cik 100334
-                :advisor "American Century Mutual Funds, Inc."
-                :fund " iiiii Equity Fund"
-                :sid "S000006198"
-                :no "x7499"
-                :date-filed "2018-10-31"
-                :date-report "2018-10-31"})
-
-  (report-no "xx458")
-  (report-no "xx499")
-  (report-no "x7499")
-  (report-existing? "xx499")
-  (report-existing? "xx458")
-  (all-reports)
-  (reports-for-fund "S000006198")
-  (reports-for-fund "S000004198")
-   
-  ; fund
-  (fund "S000006198")
-  (fund "S000004198")
-  (fund-list)
-
-  ; manager 
-  (manager 100334)
-  (funds-of-manager 100334)
-  (manager-list)
 
   
+
+
   (d/q '[:find ?o ?on
-                  :in $ ?c
-                  :where
-                  [?c :fund/reports ?o]
-                  [?o :report/no ?on]
-         ]
+         :in $ ?c
+         :where
+         [?c :fund/reports ?o]
+         [?o :report/no ?on]]
        @conn
-        19 
-       )
+       19)
 
-  
-  (d/pull @conn '[* ]
-        [:fund/sid "S000006198"])
 
+  (d/pull @conn '[*]
+          [:fund/sid "S000006198"])
 
 
 
 
 
-(d/q '[:find ?x
-       :in $
-       :where [?x :manager/funds _]]
-     @conn)
 
+  (d/q '[:find ?x
+         :in $
+         :where [?x :manager/funds _]]
+       @conn)
+
+
+  (d/q '[:find ?e
+         :where [?e :report/no "xx123"]]
+       @conn)
+
+
+  ;(d/entity @conn [:fund/sid "S000006198"])
+;(d/entity @conn [:report/no "xx458"])
+
+  (d/q '[:find ?report ; ?fund
+         :in $ ?sid
+         :where
+         [?fund :fund/sid ?sid] ; lookup db id for report
+       ;[?fund :manager/funds ?sid]
+       ;[?fund :fund/name ?n]
+         [?report :fund/reports ?fund]]
+       @conn
+       "S000006198")
 
 
  ; 
