@@ -2,9 +2,9 @@
 
   :min-lein-version "2.9.4" ; nrepl 0.7.0
 
- 
+
   :dependencies [[techascent/tech.ml.dataset "6.00-beta-7"]
-                 
+
                  ; dependency conflict resolution
                  [commons-codec "1.15"]
                  [org.clojure/data.xml "0.0.8"]
@@ -23,19 +23,22 @@
                  [cheshire "5.10.0"]  ; JSON parsings and pretty printing
                  [fipp "0.6.23"] ; edn pretty printing
                  [hickory "0.7.1"] ; html parser
-                  [org.clojure/data.zip "0.1.1"]
+                 [org.clojure/data.zip "0.1.1"]
                  [clj-http "3.12.0"]
                  [throttler "1.0.0" ; api rate-limits 
                   :exclusions  [[org.clojure/clojure]
                                 [org.clojure/core.async]]]; has very old core.async
+                 
+                   [clojure.java-time "0.3.2"]
+                 [io.replikativ/datahike "0.3.6"]
+                 ;[org.pinkgorilla/goldly-server "0.2.26"]
                  ]
 
   :target-path  "target/jar"
   :source-paths ["src"]
   :test-paths ["test"]
   :resource-paths  ["resources"]
-  :profiles {
-             :dev {:dependencies [[clj-kondo "2021.03.31"] ; 
+  :profiles {:dev {:dependencies [[clj-kondo "2021.03.31"] ; 
                                   [ring/ring-mock "0.4.0"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
@@ -53,8 +56,5 @@
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
 
-  :aliases {
-            "parse"  
-            ["run" "-m" "edgar.demo"]
-
-          })
+  :aliases {"parse"
+            ["run" "-m" "edgar.demo"]})

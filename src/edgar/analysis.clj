@@ -1,8 +1,8 @@
 (ns edgar.analysis
   (:require
-   [clojure.java.io]
+   [edgar.db :refer [reports-for]]
    [edgar.edn :refer [edn-read edn-save]])
-  (:import java.io.File))
+  )
 
 (defn nport-file [{:keys [cik no]} {:keys [fid]}]
   (str "data/nport/" cik "_" no "_" fid ".edn"))
@@ -92,27 +92,7 @@
     report
     ))
 
-; report lister
 
-(def re-nport #"(.*)_(.*)_(.*)\.edn")
-(defn nport-info [f]
-  (let [s (.getName f)
-        m (re-find re-nport s)
-        [_ cik no fid] m]
-    {:cik cik
-     :no no
-     :fid fid}))
-
-(defn reports-for [fid]
-  (let [dir (clojure.java.io/file "data/nport")
-        files (.listFiles dir)
-        f (first files)]
-    (->>
-     (map nport-info files)
-     (sort-by :fid)
-     (filter #(= fid (:fid %)))
-    ;(.getName f)
-     )))
 
 
 (defn calc-3 [replist]

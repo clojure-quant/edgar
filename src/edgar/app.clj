@@ -1,8 +1,8 @@
-(ns edgar.demo
+(ns edgar.app
   (:require
    [clojure.core.async :refer [thread go <!]]
-   [clojure.java.io]
-
+   [clojure.java.io :as io]
+   ;[goldly-server.app]
    [edgar.edn :refer [edn-read edn-save]]
    [edgar.download :refer [dl-filing dl-primary]]
    [edgar.index :refer [filings-index]]
@@ -26,12 +26,16 @@
       (parse-filing body))))
 
 (defn get-nport [f]
-  (println "get-nport " f)
-  (let [body (dl-primary f)]
-    (when body
-      (spit (nport-file-xml f) body)
-      (let [pf (extract-pf-str body)]
-        (edn-save (nport-file f pf) pf)))))
+  (let [f-xml (nport-file-xml f)]
+    (if (.exists (io/file f-xml))
+      (println "existing: " f)
+      (do
+        (println "get-nport " f)
+        (let [body (dl-primary f)]
+          (when body
+            (spit f-xml body)
+            (let [pf (extract-pf-str body)]
+              (edn-save (nport-file f pf) pf))))))))
 
 
 (defn get-nport-index [cik filename]
@@ -63,11 +67,14 @@
              (println "start..")
              ;(get-nport-index 916488 "data/index/2018-QTR4.tsv" )
              ;(get-nport-all 916488)
-              (get-nport-all nil)
+             (get-nport-all nil)
              ;
              ))
        (println "done.")))
 
+
+(defn goldly! []
+  (goldly-server.app/goldly-server-run! "jetty"))
 
 
 (defn -main []
@@ -78,9 +85,6 @@
 (comment
   (job1)
   (job2)
-  (f)
+
   ;
   )
-
-
-get-nport  {form NPORT-P, :date #object[java.time.LocalDate 0x37fbf3a5 2019-11-22], :cik 1003239, :name SEASONS SERIES TRUST, :no 0001752724-19-175480}
