@@ -7,9 +7,12 @@
    [edgar.download :refer [dl-filing dl-primary]]
    [edgar.index :refer [filings-index]]
    [edgar.filing :refer [parse-filing]]
-   [edgar.portfolio :refer [extract-pf-str]])
-  ;(:gen-class)
+   [edgar.portfolio :refer [extract-pf-str]]
+   [edgar.db :refer [add-report]]
+   )
+  (:gen-class)
   (:import java.io.File))
+
 
 (defn filing-file [{:keys [cik no]}]
   (str "data/filings/" cik "-" no "-index.html"))
@@ -25,6 +28,13 @@
     (when body
       (parse-filing body))))
 
+(defn save [f {:keys [sid cik no] :as pf}]
+  (when (and cik sid no)
+    (add-report pf)
+    (edn-save (nport-file f pf) pf))
+  )
+
+
 (defn get-nport [f]
   (let [f-xml (nport-file-xml f)]
     (if (.exists (io/file f-xml))
@@ -34,8 +44,11 @@
         (let [body (dl-primary f)]
           (when body
             (spit f-xml body)
-            (let [pf (extract-pf-str body)]
-              (edn-save (nport-file f pf) pf))))))))
+            (let [pf (extract-pf-str body)
+                  pf (assoc pf :no (:no f))
+                  ]
+              (save f pf)
+              )))))))
 
 
 (defn get-nport-index [cik filename]
@@ -73,18 +86,21 @@
        (println "done.")))
 
 
-(defn goldly! []
+#_(defn goldly! []
   (goldly-server.app/goldly-server-run! "jetty"))
 
 
 (defn -main []
-
+    (println "importing..")
+    (get-nport-all nil)
+    (println "done.")
+    ;(job2)
   ;
   )
 
 (comment
   (job1)
-  (job2)
+  
 
   ;
   )

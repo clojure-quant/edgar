@@ -56,5 +56,11 @@
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
 
-  :aliases {"parse"
-            ["run" "-m" "edgar.demo"]})
+  :aliases {"import"
+            ["run" "-m" "edgar.app"]
+            
+            "info"
+            ["run" "-m" "edgar.info"]
+            }
+  
+  )

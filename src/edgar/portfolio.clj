@@ -1,5 +1,6 @@
 (ns edgar.portfolio
   (:require
+   [clojure.string :as str]
    [clojure.set :refer [rename-keys]]
    [edgar.xml :refer [p-str p-file]]
    [edgar.edn])
@@ -18,8 +19,12 @@
 ;:cusip "302081104"
 
 (defn read-num [s]
-  (let [format (NumberFormat/getNumberInstance Locale/US)]
-    (.parse format s)))
+  (if (= s "N/A")
+    0
+  (let [format (NumberFormat/getNumberInstance Locale/US)
+        s (str/trim s)
+        ]
+    (.parse format s))))
 
 
 (defn holding [h]
@@ -46,8 +51,8 @@
         {:keys [seriesId seriesName regName repPdEnd repPdDate]} ginfo
         pf (map holding pf)
         d {:fund seriesName
-           :fid seriesId
-           :cik cik
+           :sid seriesId
+           :cik (long (Integer/parseInt cik))
            :advisor regName
            :date-filed repPdDate
            :date-report repPdEnd

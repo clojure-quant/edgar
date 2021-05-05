@@ -51,7 +51,7 @@
               :db/valueType :db.type/string
               :db/cardinality :db.cardinality/one}])
 
-
+; db.type/instant 	java.util.Date
 
 (when-not (d/database-exists? cfg)
   (d/create-database cfg))
@@ -218,10 +218,6 @@
   (funds-of-manager 100334)
   (manager-list)
 
-
-  
-  
-   (:db/id (d/entity @conn 100334))
   
   (d/q '[:find ?o ?on
                   :in $ ?c
@@ -234,25 +230,10 @@
        )
 
   
-
-
   (d/pull @conn '[* ]
         [:fund/sid "S000006198"])
 
 
-  (d/transact conn [{:manager/cik 1
-                     :manager/name "a"}
-                    {:fund/sid 1
-                     :fund/name "f"}
-                    {:report/no no
-                     :report/cik cik
-                     :report/sid sid
-                    }
-                    {:manager/cik cik
-                     :manager/_funds [:fund/sid sid]}
-                     
-                    {:fund/_reports [:report/no no]}
-                    ]))
 
 
 
