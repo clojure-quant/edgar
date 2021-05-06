@@ -28,19 +28,22 @@
     ))
 
 (defn fund-by-id [id]
+  (println "getting fund: " id)
   (let [id-int (Integer/parseInt id)
         f  (db/fund-bydbid id-int)]
-    (println "fund-by-id" id f)
+    (println "returning fund: " f)
     f))
 
 (defn fund-behavior [id]
+  (println "getting behavior: " id)
   (let [id-int (Integer/parseInt id)
         b  (calc-behavior id-int)]
-    (println "behavior" id b)
+    (println "returning behavior: " b)
     b))
 
 
 (defn report-by-id [id]
+  (println "getting report " id)
   (let [id-int (Integer/parseInt id)
         r  (load-report id-int)]
     (println "report id:" id-int "period: " (:date-filed r))
@@ -109,25 +112,49 @@
             
             [:div
              [:p.text-xl.text-blue-700 "behavior"]
+             [:p "keep-buying: " (get-in @state [:behavior :keep-buy])]
+             [:p "keep-selling: " (get-in @state [:behavior :keep-sell])]
+ 
               (into [:table]
                    (map (fn [b]
                           [:tr
-                             [:td.p-2 (:p-date b)]
+                             [:a {:on-click (fn [& _]  
+                                              (swap! state assoc :matrix (get-in b [:matrix]))
+                                              )}
+                              [:td.p-2 (:p-date b)]
                              [:td.p-2 (:c-date b)]
-                             [:td.p-2 (:n-date b)]
-                           [:td.p-2.w-6.bg-yellow-300 (get-in b [:stats :all :tot])]
-                           [:td.p-2.w-6.bg-yellow-300 (get-in b [:stats :all :n-neg])]
-                           [:td.p-2-w-6.bg-yellow-300 (get-in b [:stats :all :n-pos])]
+                             [:td.p-2 (:n-date b)]]
+                           [:td.p-2.w-6 (get-in b [:stats :all :tot])]
+                           [:td.p-2.w-6.text-red-900 (get-in b [:stats :all :n-neg])]
+                           [:td.p-2-w-6.text-blue-900 (get-in b [:stats :all :n-pos])]
                            [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :tot])]
-                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-neg])]
-                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-pos])]
+                           [:td.p-2.w-6.bg-blue-300.text-red-900 (get-in b [:stats :p-pos :n-neg])]
+                           [:td.p-2.w-6.bg-blue-300.text-blue-900 (get-in b [:stats :p-pos :n-pos])]
                            [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :tot])]
-                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :n-neg])]
-                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :n-pos])]                           
+                           [:td.p-2.w-6.bg-red-300.text-red-900 (get-in b [:stats :p-neg :n-neg])]
+                           [:td.p-2.w-6.bg-red-300.text-blue-900 (get-in b [:stats :p-neg :n-pos])]                           
                            ]
                          )
-                           (:behavior @state)))]
+                           (get-in @state [:behavior :reps])))]
              
+             (let [matrix (or (:matrix @state) [])]
+               (when (> (count matrix) 0)
+                [:p.text-xl.text-blue-700 "behavior matrix"]
+                (into [:table] 
+                  (map (fn [m]
+                      [:tr
+                        [:td (:title m)] 
+                        [:td (get-in m [:p :qty])]
+                        [:td (get-in m [:c :qty])]
+                        [:td (get-in m [:n :qty])]
+                        [:td (get-in m [:p :valUSD])]
+                        [:td (get-in m [:c :valUSD])]
+                        [:td (get-in m [:n :valUSD])]
+                        [:td (get-in m [:p :pctVal])]
+                        [:td (get-in m [:c :pctVal])]
+                        [:td (get-in m [:n :pctVal])]]
+                         ) matrix))))
+
              ]
      :fns {;:incr (fn [_ s] (inc s))
            }}
