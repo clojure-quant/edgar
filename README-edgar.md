@@ -24,3 +24,4 @@ accession number
  https://www.sec.gov/edgar/search/?r=el#/ciks=0000916488&entityName=TEMPLETON%2520GLOBAL%2520INVESTMENT%2520TRUST%2520%2520(CIK%25200000916488)&filter_forms=NPORT-P
 
  
+ If you just want to store blobs you can get the underlying konserve store out with (:store @connection) and then use the protocols for edn or binary data as described here: https://github.com/replikativ/konserve. You can also use konserve functions to access the blobs from inside your queries, you will just not benefit from indexing.

@@ -2,44 +2,60 @@
   (:require
    [goldly-server.app]
    [edgar.db :as db]
+   [edgar.job.info :refer [funds-3-reps]]
    [goldly.runner :refer [system-start!]]
    [goldly.system :as goldly :refer [def-ui]]))
 
-(defn start-fund-list []
-  (system-start!
-   (goldly/system
-    {:id :fund-list
-     :state {:funds []}
-     :html [:<>
-            [:h1 "Mutual Fund (EDGAR database from SEC )"]
-            [:button {:on-click (fn [& _]
-                                 (println "getting funds")
-                                 (?getfunds)) }
-             "load all funds"]
-            [:div.flex.flex-row.content-between
-             (into [:div.flex.flex-col.justify-start]
-                   (map (fn [[id name]]
-                          [:a {:href (str "/system/fund/" id)}
-                          [:span name]])
-                        (:funds @state)))]]
-     :fns {;:incr (fn [_ s] (inc s))
-           }}
-    {:fns {:getfunds [(fn [] (db/fund-list)) [:funds]]}})))
+
+(defn funds3 []
+  (let [funds (db/fund-list-count)
+        funds3  (funds-3-reps funds)]
+    (println "funds with 3 reports" funds3)
+    funds3))
 
 
 (defn reps-by-id [id]
   (let [id-int (Integer/parseInt id)
-        reps  (db/reports-for-fund-by-dbid id-int)
-        ]
-   (println "reps-by-id" id reps)
-    reps
-  ))
+        reps  (db/reports-for-fund-by-dbid id-int)]
+    (println "reps-by-id" id reps)
+    reps))
 
 (defn fund-by-id [id]
   (let [id-int (Integer/parseInt id)
         f  (db/fund-bydbid id-int)]
     (println "fund-by-id" id f)
     f))
+
+(defn start-fund-list []
+  (system-start!
+   (goldly/system
+    {:id :fund-list
+     :state {:first true
+             :funds []}
+     :html [:<>
+            [:h1 "Mutual Fund (EDGAR database from SEC )"]
+            [:p "showing funds with at least 3 portfolio reports"]
+            (when (:first @state)
+              (swap! state assoc :first false)
+              (?get-funds))
+            [:button {:on-click (fn [& _]
+                                 (println "getting funds")
+                                 (?get-funds)) }
+             "load all funds"]
+            [:div.flex.flex-row.content-between
+             (into [:div.flex.flex-col.justify-start]
+                   (map (fn [{:keys [id name reports]}]
+                          [:a {:href (str "/system/fund/" id)}
+                          [:span-p-1.w16 name]
+                          [:span.p-1 reports] 
+                           ])
+                        (:funds @state)))]]
+     :fns {;:incr (fn [_ s] (inc s))
+           }}
+    {:fns {:get-funds [funds3 [:funds]]}})))
+
+
+
 
 
 

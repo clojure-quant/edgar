@@ -11,6 +11,7 @@ usrs the following libraries:
 
 ```
 lein edgar index     ; to build a database
+lein edgar info      ; short info on data in database
 lein edgar goldly    ; to inspect with browser on port 8000
 ```
 
