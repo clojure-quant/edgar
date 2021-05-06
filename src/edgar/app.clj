@@ -3,8 +3,8 @@
    [edgar.db :as db]
    [edgar.job.dummy :refer [add-dummy-data]]
    [edgar.job.info :refer [print-db-info]]
-   [edgar.job.index :refer [import-index]]
    [edgar.job.goldly :refer [goldly-run]]
+   [edgar.import.index :refer [import-index]]
    )
   (:gen-class))
 

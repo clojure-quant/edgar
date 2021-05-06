@@ -27,13 +27,13 @@
 (defn import-index []
   (println "importing index ..")
     ;(get-nport-index 916488 "data/index/2018-QTR4.tsv" )
-  (get-nport-all 916488)
-    ;(get-nport-all nil)
+  ;(get-nport-all 916488)
+    (get-nport-all nil)
   (println "done."))
 
 (comment
   (import-index)
-  
+
 
   ;
   )
