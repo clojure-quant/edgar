@@ -78,6 +78,12 @@
 
 (comment
 
+  (def s (slurp "data/nport-xml/1217286_0001752724-20-057878.xml"))
+  (p-str #{:financials} s)
+  s
+  (p-file #{:financials} "data/nport-xml/1217286_0001752724-19-200694.xml"
+          )
+
   (defn p [str]  
     (p-str #{:financials} str))
 

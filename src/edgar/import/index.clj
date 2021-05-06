@@ -15,8 +15,10 @@
     (doall (map nport filings))))
 
 (defn get-nport-all [cik]
-  (doall (for [year [2019 2020 2021]
-               q [1 2 3 4]]
+  (doall (for [year [2021
+                     2020 
+                     2019]
+               q [4 3 2 1]]
      ; "data/index/2020-QTR4.tsv"
      ; "data/index/2021-QTR1.tsv"
            (let [filename (str "data/index/" year "-QTR" q ".tsv")]

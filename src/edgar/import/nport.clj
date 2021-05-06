@@ -2,7 +2,7 @@
   (:require
    [clojure.java.io :as io]
    [edgar.edn :refer [edn-read edn-save]]
-   [edgar.sec.download :refer [dl-filing dl-primary]]
+   [edgar.sec.download :refer [dl-primary]]
    ;[edgar.sec.filing :refer [parse-filing]]
    [edgar.sec.portfolio :refer [extract-pf-str]]
    [edgar.db :as db]))
@@ -14,7 +14,7 @@
   (let [f-xml (nport-file-xml f)]
     (if (.exists (io/file f-xml))
       (println "skipping download. file existing: " f)
-      (let [body (dl-filing f)]
+      (let [body (dl-primary f)]
         (if body
           (spit f-xml body)
           (println "nport-download failed: " f))))))
@@ -46,7 +46,7 @@
   (try (do (nport-download f)
            (nport-import f))
        (catch Exception e
-         (println "nport exception: " f))))
+         (println "nport exception: " f ))))
 
 
 (comment
@@ -62,6 +62,15 @@
   
   (nport {:cik 1004655
           :no "0001752724-21-069935"})
+
+  (nport {:cik 1217286
+          :name "JPMorgan Trust I" 
+          :no "0001752724-20-034694"})
+  
+  (nport {:cik 1217286
+          :name "JPMorgan Trust I"
+          :no "0001752724-20-057878"})
+
 
   ;
   )
