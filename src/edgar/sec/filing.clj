@@ -1,4 +1,4 @@
-(ns edgar.filing
+(ns edgar.sec.filing
   (:require
    [hickory.core :as h]
    [hickory.select :as s]))

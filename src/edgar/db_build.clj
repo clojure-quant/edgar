@@ -3,7 +3,7 @@
    [clojure.java.io :as io]
    [edgar.edn :refer [edn-read edn-save]]
    [edgar.index :refer [filings-index]])
-  (:import java.io.File))
+  )
 
 
 (defn cik-name [f]
@@ -36,24 +36,7 @@
     (edn-save "data/manager.edn" manager)))
 
 
-; report lister
 
-(def re-nport #"(.*)_(.*)_(.*)\.edn")
-(defn nport-info [f]
-  (let [s (.getName f)
-        m (re-find re-nport s)
-        [_ cik no fid] m]
-    {:cik cik
-     :no no
-     :fid fid}))
-
-(defn reports-all []
-  (let [dir (clojure.java.io/file "data/nport")
-        files (.listFiles dir)]
-    (->>
-     (map nport-info files)
-     ;(sort-by :fid)
-     )))
 
 (defn reports-for [fid]
   (->> (reports-all)

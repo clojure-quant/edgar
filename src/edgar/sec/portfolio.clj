@@ -1,8 +1,8 @@
-(ns edgar.portfolio
+(ns edgar.sec.portfolio
   (:require
    [clojure.string :as str]
    [clojure.set :refer [rename-keys]]
-   [edgar.xml :refer [p-str p-file]]
+   [edgar.sec.xml :refer [p-str p-file]]
    [edgar.edn])
   (:import
    [java.text NumberFormat]

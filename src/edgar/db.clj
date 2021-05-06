@@ -114,6 +114,16 @@
        @conn
        sid))
 
+(defn reports-for-fund-by-dbid [id-fund]
+  (d/q '[:find [(pull ?report [*]) ...]; . ;. ;?report ; ?fund
+         :in $ ?id-fund
+         :where 
+         [?report :fund/reports ?id-fund]]
+       @conn
+       id-fund))
+
+
+
 (defn funds-of-manager [cik]
   (d/q '[:find  ?funds ; ?manager
          :in $ ?cik
@@ -156,13 +166,12 @@
           '[*]
           [:fund/sid sid]))
 
+(defn fund-bydbid [fund-id]
+  (d/pull @conn
+          '[*]
+          fund-id))
+
 (comment
-
- 
-  
-
-  
-
 
   (d/q '[:find ?o ?on
          :in $ ?c
@@ -175,11 +184,6 @@
 
   (d/pull @conn '[*]
           [:fund/sid "S000006198"])
-
-
-
-
-
 
   (d/q '[:find ?x
          :in $

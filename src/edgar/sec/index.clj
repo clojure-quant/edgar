@@ -1,4 +1,4 @@
-(ns edgar.index
+(ns edgar.sec.index
   (:require
    [clojure.set :refer [rename-keys]]
    [tech.v3.dataset :as ds]))

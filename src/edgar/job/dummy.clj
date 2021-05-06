@@ -33,6 +33,8 @@
 
 (comment
 
+ (db/connect!) 
+
 (db/report-no "xx458")
 (db/report-no "xx499")
 (db/report-no "x7499")
@@ -41,11 +43,18 @@
 (db/all-reports)
 (db/reports-for-fund "S000006198")
 (db/reports-for-fund "S000004198")
+(db/reports-for-fund-by-dbid 13)
+(db/reports-for-fund-by-dbid 16)  
+(db/fund-bydbid 13)
 
   ; fund
 (db/fund "S000006198")
 (db/fund "S000004198")
 (db/fund-list)
+
+
+
+
 
   ; manager 
 (db/manager 100334)

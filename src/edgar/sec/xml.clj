@@ -1,4 +1,4 @@
-(ns edgar.xml
+(ns edgar.sec.xml
   (:require
    [clojure.string :as str]
    [clojure.xml :as xml]

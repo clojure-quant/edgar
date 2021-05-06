@@ -1,4 +1,4 @@
-(ns edgar.download
+(ns edgar.sec.download
   (:require
    [clojure.string]
    [clj-http.client :as client]
