@@ -8,6 +8,7 @@
    [edgar.job.info :refer [funds-3-reps]]
    [edgar.analysis.report :refer [load-report]]
    [edgar.analysis.instrument :refer [relevant]]
+   [edgar.analysis.behavior :refer [calc-behavior]]
    ))
 
 
@@ -31,6 +32,13 @@
         f  (db/fund-bydbid id-int)]
     (println "fund-by-id" id f)
     f))
+
+(defn fund-behavior [id]
+  (let [id-int (Integer/parseInt id)
+        b  (calc-behavior id-int)]
+    (println "behavior" id b)
+    b))
+
 
 (defn report-by-id [id]
   (let [id-int (Integer/parseInt id)
@@ -79,6 +87,7 @@
             (when (:first @state)
               (swap! state assoc :first false)
               (?get-fund ext)
+              (?get-behavior ext)
               (?get-reports ext))
 
             ; fund data
@@ -96,11 +105,36 @@
                             [:span.p-1 (:report/no f)]
                             ;[:span (pr-str f)]
                             ]])
-                        (:reports @state)))]]
+                        (:reports @state)))]
+            
+            [:div
+             [:p.text-xl.text-blue-700 "behavior"]
+              (into [:table]
+                   (map (fn [b]
+                          [:tr
+                             [:td.p-2 (:p-date b)]
+                             [:td.p-2 (:c-date b)]
+                             [:td.p-2 (:n-date b)]
+                           [:td.p-2.w-6.bg-yellow-300 (get-in b [:stats :all :tot])]
+                           [:td.p-2.w-6.bg-yellow-300 (get-in b [:stats :all :n-neg])]
+                           [:td.p-2-w-6.bg-yellow-300 (get-in b [:stats :all :n-pos])]
+                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :tot])]
+                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-neg])]
+                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-pos])]
+                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :tot])]
+                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :n-neg])]
+                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :n-pos])]                           
+                           ]
+                         )
+                           (:behavior @state)))]
+             
+             ]
      :fns {;:incr (fn [_ s] (inc s))
            }}
     {:fns {:get-reports [reps-by-id [:reports]]
-           :get-fund [fund-by-id [:fund]]}})))
+           :get-fund [fund-by-id [:fund]]
+           :get-behavior [fund-behavior [:behavior]]
+           }})))
 
 (defn start-report []
   (system-start!

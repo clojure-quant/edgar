@@ -1,7 +1,9 @@
-(ns edgar.analysis
+(ns edgar.analysis.behavior
   (:require
-   [edgar.db :as db]
-   [edgar.edn :refer [edn-read edn-save]])
+   [edgar.edn :refer [edn-read edn-save]]
+   [edgar.analysis.instrument :refer [relevant]]
+   [edgar.analysis.report :refer [load-reports]]
+   )
   )
 
 (defn add-holding [pos indexed h]
@@ -12,8 +14,9 @@
       (assoc indexed k m))))
 
 (defn match [indexed pf pos]
-  (let [holdings-pf (:holdings pf)
-        holdings-pf (filter #(= "EC" (:assetCat %)) holdings-pf)
+  (let [pf (relevant pf)
+        holdings-pf (:holdings pf)
+        ;holdings-pf (filter #(= "EC" (:assetCat %)) holdings-pf)
         ]
     (reduce (partial add-holding pos)
             indexed
@@ -91,9 +94,9 @@
 (defn calc-3 [replist]
   (if ( > (count replist) 2)
      (let [ [p c n] (take 3 replist)]
-       (qty-report {:p (:r p) 
-                    :c (:r c) 
-                    :n (:r n)})
+       (qty-report {:p p 
+                    :c c 
+                    :n n})
        )
     []
   ))
@@ -105,10 +108,9 @@
     []
   ))
 
-(defn calc-reports-for [fid]
-  (let [reps (db/reports-for fid)
-        reps (map #(assoc % :r (load-one %)) reps)
-        reps (sort-by #(get-in % [:r :date-filed]) reps)
+(defn calc-behavior [fund-db-id]
+  (let [reps (load-reports fund-db-id)
+        reps (sort-by :date-report reps)
         ]
      (calc-rec reps)
      ;(map #(dissoc % :r) reps )
@@ -117,27 +119,10 @@
 
 (comment
 
-  (defn qty-report-load [p c n]
-    (let [reps {:p (load-one p)
-                :c (load-one c)
-                :n (load-one n)}]
-      (qty-report reps)))
-
-  (qty-report-load
-   {:no "0001145549-20-016610" :cik "100334" :fid "S000006192"}
-   {:no "0001145549-20-036689" :cik "100334" :fid "S000006192"}
-   {:no "0001145549-20-076715" :cik "100334" :fid "S000006192"})
-
-
-  (calc-reports-for 
-   ;"S000006192"
-   "S000008749"
-   )
+  (calc-behavior 496)
+ 
   
-   {:id 6468, :name Baird SmallCap Value Fund, :reports 4}
-   {:id 28417, :name Mid Cap Value Fund, :reports 5}
-  
-  ; :assetCat "EC"
+ 
 
   ;
   )
