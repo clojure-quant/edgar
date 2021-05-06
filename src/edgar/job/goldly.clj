@@ -1,11 +1,14 @@
 (ns edgar.job.goldly
   (:require
    [goldly-server.app]
+   [goldly.runner :refer [system-start!]]
+   [goldly.system :as goldly :refer [def-ui]]
+   
    [edgar.db :as db]
    [edgar.job.info :refer [funds-3-reps]]
    [edgar.analysis.report :refer [load-report]]
-   [goldly.runner :refer [system-start!]]
-   [goldly.system :as goldly :refer [def-ui]]))
+   [edgar.analysis.instrument :refer [relevant]]
+   ))
 
 
 (defn funds3 []
@@ -19,7 +22,9 @@
   (let [id-int (Integer/parseInt id)
         reps  (db/reports-for-fund-by-dbid id-int)]
     (println "reps-by-id" id reps)
-    reps))
+    ;reps
+    (sort-by :report/date-filed reps)
+    ))
 
 (defn fund-by-id [id]
   (let [id-int (Integer/parseInt id)
@@ -31,7 +36,8 @@
   (let [id-int (Integer/parseInt id)
         r  (load-report id-int)]
     (println "report id:" id-int "period: " (:date-filed r))
-    r))
+    (relevant r)
+    ))
 
 (defn start-fund-list []
   (system-start!
@@ -65,7 +71,7 @@
   (system-start!
    (goldly/system
     {:id :fund
-     :hidden? true
+     :hidden true
      :state {:first true
              :reports []}
      :html [:<>
@@ -100,7 +106,7 @@
   (system-start!
    (goldly/system
     {:id :report
-     :hidden? true
+     :hidden true
      :state {:first true
              :report {}}
      :html [:<>

@@ -75,9 +75,9 @@
                (stats-all))
         report {:advisor (get-in reps [:p :advisor])
                :fund (get-in reps [:p :fund])
-               :p-date (get-in reps [:p :date-filed])
-               :c-date (get-in reps [:c :date-filed])
-               :n-date (get-in reps [:n :date-filed])
+               :p-date (get-in reps [:p :date-report])
+               :c-date (get-in reps [:c :date-report])
+               :n-date (get-in reps [:n :date-report])
                :stats stats}
         
         ]
