@@ -56,8 +56,8 @@
            :sid (or seriesId seriesLei) ; some funds dont have seriesId
            :cik (if (str/blank? cik) 0 (long (Integer/parseInt cik)))
            :advisor regName
-           :date-filed repPdDate
-           :date-report repPdEnd
+           :date-report repPdDate
+           :date-fiscal repPdEnd
            :nav (read-num nav)
            :holdings pf}]
     d

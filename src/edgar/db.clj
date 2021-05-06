@@ -70,6 +70,8 @@
   (println "creating schema..")
   (d/transact conn schema))
 
+; (close!)
+; (create!)
 
 (defn add-report [{:keys [cik advisor
                           sid fund

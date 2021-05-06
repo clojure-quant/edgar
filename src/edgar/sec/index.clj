@@ -1,5 +1,6 @@
 (ns edgar.sec.index
   (:require
+   [java-time]
    [clojure.set :refer [rename-keys]]
    [tech.v3.dataset :as ds]))
 
@@ -32,7 +33,9 @@
     d))
 
 (defn filings-index [file-name form cik]
-  (let [d (load-index file-name)]
+  (let [d (load-index file-name)
+        fmt (java-time/formatter "yyyy-MM-dd")
+        ]
     (println "index " file-name)
     (->>
      (ds/filter-column d "form" #(= form %))
@@ -46,10 +49,16 @@
                            "date" :date
                            "Name" :name
                            ;"form" :f
-                           })))))
+                           }))
+     (map #(assoc % :date-filed (java-time/format fmt (:date %))) )
+     )))
 
 (comment
-
+  
+  (java-time/format
+  (java-time/formatter "yyyy-MM-dd")
+   (java-time/local-date))
+  
   ; NPORT-P
   ; NPORT-P/A
   ; N-Q

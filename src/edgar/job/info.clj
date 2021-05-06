@@ -27,3 +27,10 @@
          "reports: " (count rps))
     ))
 
+(comment 
+  
+  (print-db-info)
+  
+  ;
+  )
+

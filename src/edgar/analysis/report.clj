@@ -36,13 +36,22 @@
   ; data/nport/1282693_0001145549-21-012804_S000036810.edn
   ; data/nport/1282693_0001145549-21-012804.edn
   
+  (db/report 43999)
+
   (load-report 43999)
   (load-report 21418)
   
-   (db/reports-for-fund-by-dbid 6468)
-   (db/reports-for-fund-by-dbid 21417)
+  
+   (db/fund "S000058036") ; :date-filed "2021-04-27", :date-report "2021-02-28"
+   (db/reports-for-fund-by-dbid 25)
+   (db/reports-for-fund-by-dbid 29922)
   
   (load-reports 6468)
+  
+
+   (->> (load-reports 21)
+        (map #(select-keys % [:date-filed :date-report :date-fiscal]))
+        )
   
 ;
 )

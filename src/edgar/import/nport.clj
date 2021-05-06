@@ -34,9 +34,12 @@
 (defn nport-import [f]
   (let [f-xml (nport-file-xml f)
         body (slurp f-xml)
+        date-filed (:date-filed f)
         pf (when body
              (-> (extract-pf-str body)
-                 (assoc :no (:no f))))]
+                 (assoc :no (:no f)
+                        :date-filed date-filed
+                        )))]
     (if pf
       (save pf)
       (println "no portfolio. not saving: " f))))
@@ -52,9 +55,14 @@
 (comment
 
     (nport {:cik 2110
-            :name "Clayton Street Trust"
-            :no "0001145549-19-046178"})
+            :no "0001145549-19-046178"
+            :date-filed "2019-01-01"
+            ;:name "Clayton Street Trust"
+            })
   
+  (db/report-no "0001145549-19-046178")
+  
+
   ; parse error:
   (nport {:cik 1660765
           :name "Clayton Street Trust"

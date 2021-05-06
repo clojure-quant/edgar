@@ -122,6 +122,7 @@
             [:p "fund " (get-in @state [:report :fund])]
             [:p "filed " (get-in @state [:report :date-filed])]
             [:p "report " (get-in @state [:report :date-report])]
+            [:p "fiscal " (get-in @state [:report :date-fiscal])]
             [:p "nav " (get-in @state [:report :nav])]
 
             [:h1.text-xl.text-red-700 "holdings"]
