@@ -51,15 +51,14 @@
 (db/fund "S000006198")
 (db/fund "S000004198")
 (db/fund-list)
-
-
-
-
+(db/fund-list-count)
 
   ; manager 
 (db/manager 100334)
 (db/funds-of-manager 100334)
 (db/manager-list)
+
+
   
 
 ;

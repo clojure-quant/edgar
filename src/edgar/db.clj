@@ -144,6 +144,16 @@
          [?id :fund/name ?name]]
        @conn))
 
+(defn fund-list-count []
+  (d/q '[:find ?fund ?name (count ?report) 
+         :where
+         [?fund :fund/name ?name]
+         [?report :fund/reports ?fund]
+         ]
+       @conn
+       ))
+
+
 (defn manager-list []
   (d/q '[:find ?id ?name
          :where
