@@ -63,13 +63,8 @@
   (nport {:cik 1004655
           :no "0001752724-21-069935"})
 
-  (nport {:cik 1217286
-          :name "JPMorgan Trust I" 
-          :no "0001752724-20-034694"})
-  
-  (nport {:cik 1217286
-          :name "JPMorgan Trust I"
-          :no "0001752724-20-057878"})
+  (nport {:cik 1319183
+          :no "0001752724-20-198585"})
 
 
   ;

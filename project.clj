@@ -52,6 +52,9 @@
   :source-paths ["src"]
   :test-paths ["test"]
   :resource-paths  ["resources"]
+  :repl-options {:welcome (println "Welcome to the magical world of the repl!")
+                 :init-ns edgar.repl
+                 :init (println "here we are in" *ns*)}
   :profiles {:dev {:dependencies [[clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]

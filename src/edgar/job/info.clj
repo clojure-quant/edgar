@@ -21,9 +21,9 @@
         rps (db/all-reports)]
     (println "info")
     (println "fund list: " funds)
-    (println "funds: " (count funds)
-             "mgrs: " (count mgrs)
-             "reports: " (count rps))
     (println "min 3 reps: " (funds-3-reps funds))
+(println "funds: " (count funds)
+         "mgrs: " (count mgrs)
+         "reports: " (count rps))
     ))
 

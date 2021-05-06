@@ -171,6 +171,11 @@
           '[*]
           [:report/no no]))
 
+(defn report [id]
+  (d/pull @conn
+          '[*]
+          id))
+
 (defn fund [sid]
   (d/pull @conn
           '[*]

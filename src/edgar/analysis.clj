@@ -1,15 +1,8 @@
 (ns edgar.analysis
   (:require
-   [edgar.db :refer [reports-for]]
+   [edgar.db :as db]
    [edgar.edn :refer [edn-read edn-save]])
   )
-
-(defn nport-file [{:keys [cik no]} {:keys [fid]}]
-  (str "data/nport/" cik "_" no "_" fid ".edn"))
-
-(defn load-one [f]
-  (let [f (nport-file f f)]
-    (edn-read f)))
 
 (defn add-holding [pos indexed h]
   (let [k (:cusip h)]
@@ -113,7 +106,7 @@
   ))
 
 (defn calc-reports-for [fid]
-  (let [reps (reports-for fid)
+  (let [reps (db/reports-for fid)
         reps (map #(assoc % :r (load-one %)) reps)
         reps (sort-by #(get-in % [:r :date-filed]) reps)
         ]
@@ -140,7 +133,10 @@
    ;"S000006192"
    "S000008749"
    )
-
+  
+   {:id 6468, :name Baird SmallCap Value Fund, :reports 4}
+   {:id 28417, :name Mid Cap Value Fund, :reports 5}
+  
   ; :assetCat "EC"
 
   ;

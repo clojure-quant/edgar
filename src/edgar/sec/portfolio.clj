@@ -48,10 +48,12 @@
         cik (get-in raw [:edgarSubmission :headerData :filerInfo :filer :issuerCredentials :cik])
         ginfo (get-in raw [:edgarSubmission :formData :genInfo])
         nav (get-in raw [:edgarSubmission :formData :fundInfo :totAssets])
-        {:keys [seriesId seriesName regName repPdEnd repPdDate]} ginfo
+        {:keys [seriesId seriesLei seriesName 
+                regName 
+                repPdEnd repPdDate]} ginfo
         pf (map holding pf)
         d {:fund seriesName
-           :sid seriesId
+           :sid (or seriesId seriesLei) ; some funds dont have seriesId
            :cik (if (str/blank? cik) 0 (long (Integer/parseInt cik)))
            :advisor regName
            :date-filed repPdDate
