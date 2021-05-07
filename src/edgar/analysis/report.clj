@@ -13,6 +13,7 @@
 (defn nport-file [cik no sid]
   (str "data/nport/" cik "_" no "_" sid ".edn"))
 
+
 (defn- load-report-impl [sid f]
   (let [cik (:db/id (:report/cik f))
         no (:report/no f)
@@ -37,7 +38,6 @@
   ; data/nport/1282693_0001145549-21-012804.edn
   
   (db/report 43999)
-
   (load-report 43999)
   (load-report 21418)
   
@@ -47,9 +47,8 @@
    (db/reports-for-fund-by-dbid 29922)
   
   (load-reports 496)
-  
 
-   (->> (load-reports 496)
+   (->> (load-reports 5841)
         ;(map #(select-keys % [:date-filed :date-report :date-fiscal]))
         ;(map :holdings)
         first

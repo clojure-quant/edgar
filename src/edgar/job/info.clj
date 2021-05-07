@@ -3,13 +3,13 @@
    [edgar.db :as db]))
 
 
-(defn funds-3-reps [funds]
+(defn funds-min-reps [funds min-no]
   (->> (map (fn [[id name c]]
               {:id id
                :name name
                :reports c}
               ) funds)
-       (filter #(> (:reports %) 2))
+       (filter #(> (:reports %) (- min-no 1)))
        )
   )
 
@@ -21,7 +21,7 @@
         rps (db/all-reports)]
     (println "info")
     (println "fund list: " funds)
-    (println "min 3 reps: " (funds-3-reps funds))
+    (println "min 3 reps: " (funds-min-reps funds 3))
 (println "funds: " (count funds)
          "mgrs: " (count mgrs)
          "reports: " (count rps))

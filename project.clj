@@ -44,8 +44,7 @@
                   :exclusions [[org.clojure/clojurescript]]
                   ]
                  ;[org.pinkgorilla/goldly "0.2.26"]
-                 [org.pinkgorilla/goldly-server "0.2.29"]
-                 ;[org.pinkgorilla/webly "0.2.26"]
+                 [org.pinkgorilla/goldly-server "0.2.32"]
                  ]
 
   :target-path  "target/jar"

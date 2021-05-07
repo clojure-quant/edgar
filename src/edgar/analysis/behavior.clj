@@ -2,14 +2,16 @@
   (:require
    [edgar.edn :refer [edn-read edn-save]]
    [edgar.analysis.instrument :refer [relevant]]
-   [edgar.analysis.report :refer [load-reports]]))
+   [edgar.analysis.report :refer [load-reports]]
+   [edgar.analysis.class :refer [make-stats]]
+   ))
 
 (defn add-holding [pos indexed h]
-  (let [k (:cusip h)]
-    (let [i (or (get indexed k)
-                (select-keys h [:title :cusip :assetCat :issuerCat :invCountry]))
-          m (assoc i pos (dissoc h :title :cusip :assetCat :issuerCat :invCountry))]
-      (assoc indexed k m))))
+  (let [k (:cusip h)
+        i (or (get indexed k)
+              (select-keys h [:title :cusip :assetCat :issuerCat :invCountry]))
+        m (assoc i pos (dissoc h :title :cusip :assetCat :issuerCat :invCountry))]
+    (assoc indexed k m)))
 
 (defn match [indexed pf pos]
   (let [pf (relevant pf)
@@ -32,30 +34,10 @@
        (contains? itm :c)
        (contains? itm :n)))
 
-(defn chg [itm]
-  (let [p-qty (get-in itm [:p :qty])
-        c-qty (get-in itm [:c :qty])
-        n-qty (get-in itm [:n :qty])]
-    {:cusip (:cusip itm)
-     :title (:title itm)
-     :diff-p (- c-qty p-qty)
-     :diff-n (- n-qty c-qty)}))
 
-
-(defn stats [itms]
-  (let [c-tot (count itms)
-        n-pos (count (filter #(> (:diff-n %) 0) itms))
-        n-neg (- c-tot n-pos)]
-    {:tot c-tot
-     :n-neg n-neg
-     :n-pos n-pos}))
-
-(defn stats-all [itms]
-  {:all (stats itms)
-   :p-pos (stats (filter #(> (:diff-p %) 0) itms))
-   :p-neg (stats (filter #(< (:diff-p %) 0) itms))})
-
-; :cusip "N/A"
+(defn by-pct [itm]
+  (- 0 (get-in itm [:c :pctVal]))
+  )
 
 (defn info [pf]
   {:nav (:nav pf)
@@ -71,16 +53,16 @@
                (match-table)
                (vals)
                (filter has-p-c-n))
-        stats (->> table
-                   (map chg)
-                   (stats-all))
+        ;stats (->> table
+        ;           (map chg)
+        ;           (stats-all))
         report {:advisor (get-in reps [:p :advisor])
                 :fund (get-in reps [:p :fund])
                 :p-date (get-in reps [:p :date-report])
                 :c-date (get-in reps [:c :date-report])
                 :n-date (get-in reps [:n :date-report])
-                :stats stats
-                :matrix table
+                :matrix (sort-by by-pct table)
+                :stats (make-stats table) ; stats
                 }]
     (edn-save (analysis-file report) (assoc report :matrix table))
     report))
@@ -109,49 +91,47 @@
     (+ a l)))
 
 (defn add-one [agg line]
-  {:all   {:n-pos (add agg line [:all :n-pos])
-           :n-neg (add agg line [:all :n-neg])
-           :tot   (add agg line [:all :tot])}
-   :p-pos {:n-pos (add agg line [:p-pos :n-pos])
+  {:p-all {:n-all (add agg line [:p-all :n-all])}
+   :p-sam {:n-all (add agg line [:p-sam :n-all])
+           :n-pos (add agg line [:p-sam :n-pos])
+           :n-neg (add agg line [:p-sam :n-neg])
+           :n-sam (add agg line [:p-sam :n-sam])}
+   :p-pos {:n-all (add agg line [:p-pos :n-all])
+           :n-pos (add agg line [:p-pos :n-pos])
            :n-neg (add agg line [:p-pos :n-neg])
-           :tot   (add agg line [:p-pos :tot])}
-   :p-neg {:n-pos (add agg line [:p-neg :n-pos])
+           :n-sam (add agg line [:p-pos :n-sam])}
+   :p-neg {:n-all (add agg line [:p-neg :n-all])
+           :n-pos (add agg line [:p-neg :n-pos])
            :n-neg (add agg line [:p-neg :n-neg])
-           :tot   (add agg line [:p-neg :tot])}})
+           :n-sam (add agg line [:p-neg :n-sam])}})
 
- (defn add-summary [lines]
-   (let [])
-   {:p-date "agg"
-    :c-date "agg"
-    :n-date "agg"
-    :stats (reduce add-one (map :stats lines))
-   })
+(defn add-summary [lines]
+  (let [])
+  {:p-date "agg"
+   :c-date "agg"
+   :n-date "agg"
+   :stats (reduce add-one (map :stats lines))})
 
 (defn p-safe [line path-a path-b]
   (let [a (get-in line path-a)
-        b (get-in line path-b)
-        ]
-   (when (> b 1)
-      (int (/ (* 100 a) b)))
-  ))
+        b (get-in line path-b)]
+    (when (and a b (> b 1))
+      (int (/ (* 100 a) b)))))
 
 (defn p [line]
-  {:keep-buy (p-safe line [:stats :p-pos :n-pos]
-                          [:stats :p-pos :tot])
+  {:keep-buy (p-safe line  [:stats :p-pos :n-pos]
+                           [:stats :p-pos :n-all])
    :keep-sell (p-safe line [:stats :p-neg :n-neg]
-                      [:stats :p-neg :tot])
-   })
+                           [:stats :p-neg :n-all])})
 
 
 (defn calc-behavior [fund-db-id]
   (let [reps (load-reports fund-db-id)
         reps (sort-by :date-report reps)
         lines (calc-rec reps)
-        sum-line (add-summary lines)
-        ]
+        sum-line (add-summary lines)]
     (assoc (p sum-line)
-           :reps (conj lines sum-line))
-    ))
+           :reps (conj lines sum-line))))
 
 (comment
 

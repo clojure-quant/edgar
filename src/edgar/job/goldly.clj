@@ -5,18 +5,18 @@
    [goldly.system :as goldly :refer [def-ui]]
    
    [edgar.db :as db]
-   [edgar.job.info :refer [funds-3-reps]]
+   [edgar.job.info :refer [funds-min-reps]]
    [edgar.analysis.report :refer [load-report]]
    [edgar.analysis.instrument :refer [relevant]]
    [edgar.analysis.behavior :refer [calc-behavior]]
    ))
 
 
-(defn funds3 []
+(defn funds-min [min-no]
   (let [funds (db/fund-list-count)
-        funds3  (funds-3-reps funds)]
-    (println "funds with 3 reports" funds3)
-    funds3))
+        funds-min  (funds-min-reps funds min-no)]
+    (println "funds with min " min-no " reports" funds-min)
+    funds-min))
 
 
 (defn reps-by-id [id]
@@ -42,12 +42,14 @@
     b))
 
 
-(defn report-by-id [id]
-  (println "getting report " id)
+(defn report-by-id [id all?]
+  (println "getting report " id "all:" all?)
   (let [id-int (Integer/parseInt id)
         r  (load-report id-int)]
     (println "report id:" id-int "period: " (:date-filed r))
-    (relevant r)
+    (if all?
+      r
+      (relevant r))
     ))
 
 (defn start-fund-list []
@@ -61,11 +63,17 @@
             [:p "showing funds with at least 3 portfolio reports"]
             (when (:first @state)
               (swap! state assoc :first false)
-              (?get-funds))
-            [:button {:on-click (fn [& _]
+              (?get-funds 4))
+            [:button.bg-yellow-800.m-2
+             {:on-click (fn [& _]
                                   (println "getting funds")
-                                  (?get-funds))}
-             "load all funds"]
+                                  (?get-funds 5))}
+             "load funds with min 5 reports"]
+            [:button.bg-yellow-800.m-2
+             {:on-click (fn [& _]
+                          (println "getting funds")
+                          (?get-funds 6))}
+             "load funds with min 6 reports"]
             [:div.flex.flex-row.content-between
              (into [:div.flex.flex-col.justify-start]
                    (map (fn [{:keys [id name reports]}]
@@ -75,7 +83,7 @@
                         (:funds @state)))]]
      :fns {;:incr (fn [_ s] (inc s))
            }}
-    {:fns {:get-funds [funds3 [:funds]]}})))
+    {:fns {:get-funds [funds-min [:funds]]}})))
 
 
 (defn start-fund []
@@ -124,15 +132,23 @@
                               [:td.p-2 (:p-date b)]
                              [:td.p-2 (:c-date b)]
                              [:td.p-2 (:n-date b)]]
-                           [:td.p-2.w-6 (get-in b [:stats :all :tot])]
-                           [:td.p-2.w-6.text-red-900 (get-in b [:stats :all :n-neg])]
-                           [:td.p-2-w-6.text-blue-900 (get-in b [:stats :all :n-pos])]
-                           [:td.p-2.w-6.bg-blue-300 (get-in b [:stats :p-pos :tot])]
-                           [:td.p-2.w-6.bg-blue-300.text-red-900 (get-in b [:stats :p-pos :n-neg])]
-                           [:td.p-2.w-6.bg-blue-300.text-blue-900 (get-in b [:stats :p-pos :n-pos])]
-                           [:td.p-2.w-6.bg-red-300 (get-in b [:stats :p-neg :tot])]
-                           [:td.p-2.w-6.bg-red-300.text-red-900 (get-in b [:stats :p-neg :n-neg])]
-                           [:td.p-2.w-6.bg-red-300.text-blue-900 (get-in b [:stats :p-neg :n-pos])]                           
+                           ; all
+                           [:td.w-6.border.border-round (get-in b [:stats :p-all :n-all])]
+                           ; past sam
+                           [:td.border.border-round.w-6 (get-in b [:stats :p-sam :n-all])]
+                           [:td.w-6 (get-in b [:stats :p-sam :n-sam])]
+                           [:td.w-6.text-red-900 (get-in b [:stats :p-sam :n-neg])]
+                           [:td.w-6.text-blue-900 (get-in b [:stats :p-sam :n-pos])]
+                           ; past up
+                           [:td.w-6.border.border-round (get-in b [:stats :p-pos :n-all])]
+                           [:td.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-sam])]
+                           [:td.w-6.text-red-900 (get-in b [:stats :p-pos :n-neg])]
+                           [:td.w-6.bg-blue-300.text-blue-900 (get-in b [:stats :p-pos :n-pos])]
+                            ;past down
+                           [:td.w-6.border.border-round (get-in b [:stats :p-neg :n-all])]
+                           [:td.w-6.bg-red-300 (get-in b [:stats :p-neg :n-sam])]
+                           [:td.w-6.bg-red-300.text-red-900 (get-in b [:stats :p-neg :n-neg])]
+                           [:td.w-6.text-blue-900 (get-in b [:stats :p-neg :n-pos])]                           
                            ]
                          )
                            (get-in @state [:behavior :reps])))]
@@ -174,7 +190,7 @@
             
             (when (:first @state)
               (swap! state assoc :first false)
-              (?get-report ext))
+              (?get-report ext false))
 
             [:p "Report db-id: " ext 
                 " no: " (get-in @state [:report :no])
@@ -191,7 +207,10 @@
             [:p "report " (get-in @state [:report :date-report])]
             [:p "fiscal " (get-in @state [:report :date-fiscal])]
             [:p "nav " (get-in @state [:report :nav])]
-
+            [:button.p-2.bg-yellow-400.border.border-round
+               {:on-click (fn [& _]
+                            (?get-report ext true)
+                            )} "display all categories"]
             [:h1.text-xl.text-red-700 "holdings"]
             [:div.flex.flex-row.content-between
              (into [:table]
@@ -213,13 +232,16 @@
     {:fns {:get-report [report-by-id [:report]]}})))
 
 
+(def goldly-config 
+ {:goldly {:systems-ns []}})
+
 (defn goldly-run []
   (println "adding systems..")
   (start-fund-list)
   (start-fund)
   (start-report)
   (println "starting goldly server..")
-  (goldly-server.app/goldly-server-run! "jetty" {}))
+  (goldly-server.app/goldly-server-run! "jetty" goldly-config))
 
 
 
