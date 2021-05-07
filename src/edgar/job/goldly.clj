@@ -135,18 +135,18 @@
                            ; all
                            [:td.w-6.border.border-round (get-in b [:stats :p-all :n-all])]
                            ; past sam
-                           [:td.border.border-round.w-6 (get-in b [:stats :p-sam :n-all])]
-                           [:td.w-6 (get-in b [:stats :p-sam :n-sam])]
+                           [:td.bg-yellow-300.border.border-round.w-6 (get-in b [:stats :p-sam :n-all])]
+                           [:td.bg-yellow-300..w-6 (get-in b [:stats :p-sam :n-sam])]
                            [:td.w-6.text-red-900 (get-in b [:stats :p-sam :n-neg])]
                            [:td.w-6.text-blue-900 (get-in b [:stats :p-sam :n-pos])]
                            ; past up
-                           [:td.w-6.border.border-round (get-in b [:stats :p-pos :n-all])]
-                           [:td.w-6.bg-blue-300 (get-in b [:stats :p-pos :n-sam])]
+                           [:td.w-6.bg-blue-300.border.border-round (get-in b [:stats :p-pos :n-all])]
+                           [:td.w-6 (get-in b [:stats :p-pos :n-sam])]
                            [:td.w-6.text-red-900 (get-in b [:stats :p-pos :n-neg])]
                            [:td.w-6.bg-blue-300.text-blue-900 (get-in b [:stats :p-pos :n-pos])]
                             ;past down
-                           [:td.w-6.border.border-round (get-in b [:stats :p-neg :n-all])]
-                           [:td.w-6.bg-red-300 (get-in b [:stats :p-neg :n-sam])]
+                           [:td.w-6.bg-red-300.border.border-round (get-in b [:stats :p-neg :n-all])]
+                           [:td.w-6 (get-in b [:stats :p-neg :n-sam])]
                            [:td.w-6.bg-red-300.text-red-900 (get-in b [:stats :p-neg :n-neg])]
                            [:td.w-6.text-blue-900 (get-in b [:stats :p-neg :n-pos])]                           
                            ]
