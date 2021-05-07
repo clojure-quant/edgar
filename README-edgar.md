@@ -25,3 +25,9 @@ accession number
 
  
  If you just want to store blobs you can get the underlying konserve store out with (:store @connection) and then use the protocols for edn or binary data as described here: https://github.com/replikativ/konserve. You can also use konserve functions to access the blobs from inside your queries, you will just not benefit from indexing.
+
+
+keep buying:
+db-id: 303
+Name:Eaton Vance Focused Growth Opportunities Fund
+SID:S000031537
