@@ -1,0 +1,38 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure    {:mvn/version "1.10.3"}
+        org.clojure/core.async {:mvn/version "1.3.618"}
+        clj-http/clj-http {:mvn/version "3.12.1"}
+        throttler/throttler {:mvn/version "1.0.0" ; api rate-limits 
+                             :exclusions  [[org.clojure/clojure]
+                                 [org.clojure/core.async]; has very old core.async
+                                           ]}
+        cheshire/cheshire  {:mvn/version "5.11.0"}
+        fipp/fipp {:mvn/version "0.6.26"}
+        org.clojure/data.zip {:mvn/version "1.0.0"}
+        into-edn/into-edn {:mvn/version "1.0.2"}
+        com.vincit/clj-xsd {:mvn/version "0.1.0"}
+        }
+ 
+ :aliases
+ {
+   :run {:extra-paths ["cli"]
+        :exec-fn demo.env.cli/run
+        :exec-args {:config "resources/ta-config.edn"}
+        :jvm-opts ["-Xmx4G"] ;; or more
+        }
+
+  :docs ; RUN SERVICES (keep running)
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.556"}}
+   :extra-paths ["target/webly" ; to include the sci-bindings info
+                 "node_modules"
+                 "resources"]
+   :exec-fn modular.system/start!
+   :exec-args {:profile "jetty"
+               :services "goldly/services.edn"
+               :config  ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
+                         "ta-config.edn"]}}
+
+
+
+  ;
+  }}
