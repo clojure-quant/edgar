@@ -68,7 +68,7 @@
   (let [cik10 (format "%010d" cik)
         url (str "https://data.sec.gov/submissions/CIK" cik10 ".json") ; cik number formatted to have 10 digit leading zeros
         _ (println "downloading submissions from url: " url)
-        body (dl url)
+        body (dl-t url)
         body-edn (cheshire/parse-string body true)
         ]
  body-edn
@@ -111,56 +111,35 @@
        (:act recent)
        (:size recent)
        (:items recent)
-       
        )))
 
 
+(defn filings-recent-type [submissions form]
+  (->>
+    (filings-recent submissions)
+    (filter #(= (:form %) form))))
 
 
+; FILING DOWNLOAD ***************************************************************************
 
-;https://www.sec.gov/Archives/edgar/data/320193/000032019321000056/0000320193-21-000056-index.htm  
-; https://www.sec.gov/Archives/edgar/data/51143/
-; /Archives/edgar/data/1004655/000175272421069935/primary_doc.xml
 ; https://www.sec.gov/Archives/edgar/data/51143/000156218021002520/primarydocument.xml
 
 
 (def base-url "https://www.sec.gov/Archives/edgar/data/")
 
-(defn filing-url [{:keys [cik no filename]}]
-  (let [no-nodash (clojure.string/replace no #"-" "")
+(defn url-filing [cik no-access filename]
+  (let [no-nodash (clojure.string/replace no-access #"-" "")
         url-filing-dir (str base-url cik "/" no-nodash)]
     (if filename
       (str url-filing-dir "/" filename)
       url-filing-dir)))
 
-(defn download-filing [f]
-  (println "dl filing: " f)
-  (let [url (filing-url f)]
-    (dl-t url)))
-
-
-(defn filing-url-index [{:keys [cik no]}]
+(defn url-filing-index [{:keys [cik no]}]
   (str base-url cik "/" no "-index.html"))
 
-(defn dl-filing [f]
-  (println "dl filing: " f)
-  (let [url (filing-url-index f)]
-    (dl-t url)))
 
 ;https://www.sec.gov/Archives/edgar/data/
 ;1004655/000175272421069935/primary_doc.xml
-
-
-
-(defn primary-url [{:keys [cik no]}]
-  (let [no-nodash (clojure.string/replace no #"-" "")]
-  (str base-url cik "/" no-nodash "/primary_doc.xml")))
-
-(defn dl-primary [f]
-  (println "dl primary: " f)
-  (let [url (primary-url f)]
-    (dl-t url)))
-
 
 ; example files of a filing directory:
 ; FilingSummary.xml     - contains info about the files that are released
@@ -177,18 +156,13 @@
 
 ;  https://data.sec.gov/api/xbrl/companyfacts/CIK##########.json
 
-(defn company-facts-url [cik]
+(defn url-company-facts [cik]
   (let [base-url "https://data.sec.gov/api/xbrl/companyfacts/CIK"
         cik10 (format "%010d" cik)]
   (str base-url cik10 ".json")))
 
-(defn dl-primary [f]
-  (println "dl primary: " f)
-  (let [url (primary-url f)]
-    (dl-t url)))
-
 (defn download-company-facts [cik]
-  (let [url (company-facts-url cik)
+  (let [url (url-company-facts cik)
         body (dl url)
         body-edn   (cheshire/parse-string body true)
         ;body-edn-vals  (vals body-edn)
@@ -198,15 +172,10 @@
     body-edn
     ))
 
-
-
 ; bulkdata
-; https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip 
+; https://www.sec.gov/Archives/edgar/daily-index/bulkdata/submissions.zip
 
-
-
-
-    
+   
 
 
 ;; EXPERIMENTS 
@@ -253,8 +222,24 @@
       )
 
   (-> (filings-recent sgoog)
-      last)
- 
+      last
+      println)
+
+  (-> (filings-recent-type sgoog "10-Q")
+      first
+      println
+      )
+  {:date-filing 2022-09-30
+   :primary goog-20220930.htm ; in url
+   :no-file 001-37580
+   :act 34, :size 11978687,
+   :no-film 221330920,
+   :no-access 0001652044-22-000090,; in url
+   :form 10-Q,
+   :primary-desc 10-Q,
+   :date-accept 2022-10-25T21:32:59.000Z,
+   :date-report 2022-09-30}
+  ;  https://www.sec.gov/Archives/edgar/data/1652044/000165204422000090/goog-20220930.htm
  
   
    ;  https://www.sec.gov/ix?doc=/Archives/edgar/data/1652044/000165204422000090/goog-20220930.htm

@@ -7,10 +7,21 @@
    [clojure.data.zip :as dzip]
    [clojure.java.io :as io]
    [into-edn :refer [into-edn]] ; https://github.com/thebusby/into-edn
+   [clojure.pprint :refer [print-table]]
    ))
+
+; nice online viewer for a huge xml document
+; https://jsonformatter.org/xml-viewer
 
 
 ; https://github.com/nonsequitur/smex
+
+(defn remove-empty [m]
+  (into {}
+        (remove (fn [[k v]]
+                  (nil? v)) m)))
+
+; (remove-empty {:a 1 :b nil})
 
 
 (defn =tag? [t]
@@ -36,21 +47,120 @@
   ([loc attrname] (when (zip/branch? loc) (-> loc zip/node :attrs attrname))))
 
 
-(def ?xml (tag= "?xml"))
-(def xbrl (tag= "xbrl"))
-(def context (tag= "context"))
-(def div (tag= "div"))
 
-(def entity (tag= "entity"))
-(def identifier (tag= "identifier"))
+(defn extract-context-node [n]
+  (let [n (first n)
+        id (get-in n [:attrs :id])
+        ;_ (println "extr" id)
+        nz (zip/xml-zip n)
+         x (zf/xml1-> nz
+                      (tag= "entity")
+                      zf/text)
+         seg (zf/xml1-> nz
+                        (tag= "entity")
+                        (tag= "segment")
+                      zf/text)
+         dts (zf/xml1-> nz
+                      (tag= "period")
+                      (tag= "startDate")
+                      zf/text)
+         dte (zf/xml1-> nz
+                      (tag= "period")
+                      (tag= "endDate")
+                      zf/text)
+         dti (zf/xml1-> nz
+                      (tag= "period")
+                      (tag= "instant")
+                      zf/text)
+        ]
+    (remove-empty
+     {:id id
+      :ref x
+      :seg seg
+      :dts dts
+      :dte dte
+      :dti dti})))
+ 
+(defn extract-context [nodes]
+  (->> (zf/xml-> nodes
+                 (tag= "xbrl")
+                 (tag= "context"))
+       ;(remove string?)
+      (map extract-context-node)
+      ; type
+;       count ; extract-context-node
+   ;    println
+       ))
 
-(def dei (tag= "dei:TradingSymbol"))
+(defn build-ref-dict [nodes]
+  (into {}
+     (map (juxt :id identity)   
+       (extract-context nodes))))
 
 
-(def nca (tag= "NoncurrentAssetsus-gaap:PreferredStockParOrStatedValuePerShare"))
 
 
+  
 
+(defn measurement-item [name nodes]
+  (let [n (first nodes)
+        attrs (:attrs n) ; :contextRef :decimals :id :unitRef
+        ref (:contextRef attrs)
+        id (:id attrs)
+       text  (zf/xml1-> nodes zf/text)
+        ]
+   ; (println (keys attrs))
+    (remove-empty
+     {:name name
+     :id id
+     :ref ref
+     :text text
+     })))
+
+
+(defn measurement [nodes name]
+ (let [nodes (zf/xml-> nodes
+                 (tag= "xbrl")
+                 (tag= name))]
+   (map (partial measurement-item name) nodes)
+   ))
+
+(defn link-period [id-dict m]
+  (let [period (get id-dict (:ref m))]
+   ; (println "linked period: " period)
+   (if period
+     (merge m period)
+     m)
+   ))
+
+(defn measurements [nodes names]
+  (let [id-dict (build-ref-dict nodes)
+        ms (apply concat
+             (map (partial measurement nodes) names))
+        ]
+    ;(println "keys in dict:" (keys id-dict))
+    (map
+     (partial link-period id-dict)
+      ms)
+    ))
+
+
+(defn parse-measurements [xml-string
+                          measurement-names]
+  (let [nodes (some->
+                xml-string
+                xml/parse-str
+                zip/xml-zip)]
+    (measurements
+     nodes
+     measurement-names)))
+  
+
+
+; instead of using zippers to extract the
+; relevant data, it 
+; might be better idea to use into-edn
+; currently not working.
 (def xml-spec
   [  #(zf/xml-> % :xbrl)
    #(zf/xml1-> %)
@@ -72,6 +182,13 @@
 
 (comment
 
+(def dei (tag= "dei:TradingSymbol"))
+
+(def nca (tag= "NoncurrentAssetsus-gaap:PreferredStockParOrStatedValuePerShare"))
+
+
+
+  
   (def xml-string (slurp "demodata/Q10/goog-20220930_htm.xml"))
   (count xml-string)
   (subs xml-string 0 1000)
@@ -81,9 +198,59 @@
             xml/parse-str
             zip/xml-zip))
  
-  (into-edn xml-spec nodes)
-  
+  ;(into-edn xml-spec nodes)
 
+  (->>
+    (extract-context nodes)
+    (print-table
+     [;:id
+      ;:ref 
+      ;:seg 
+      :dts 
+      :dte
+      :dti]
+     ))
+
+  (build-ref-dict nodes)
+
+  
+  (->>
+    (measurement nodes "InventoryNet")
+    (print-table [:text :ref])
+   )
+
+  (->>
+    (concat
+     (measurement nodes "InventoryNet")
+     (measurement nodes "AccountsPayableCurrent"))
+    (print-table [:name :text])
+   )
+
+  (->>
+    (measurements
+     nodes
+     ["InventoryNet"
+      "AccountsPayableCurrent"])
+    (print-table [:name :text
+                  :dts :dte :dti]))
+
+    (->>
+     (parse-measurements
+       xml-string
+       ["InventoryNet"
+        "AccountsPayableCurrent"
+        "RevenueFromContractWithCustomerExcludingAssessedTax"
+        "CostOfRevenue"
+        "GeneralAndAdministrativeExpense"
+        "NetIncomeLoss"
+        "EarningsPerShareDiluted"
+        ])
+    
+       (print-table [:name :text
+                     :dts :dte :dti]))
+
+
+    
   (println (-> nodes first :tag namespace))
   (-> nodes count)
   
@@ -98,80 +265,14 @@
        :tag
        name
       )
-
-  (defn print-el [n]
-    (->>
-       first
-       first
-       :content
-       ;:second
-       ;:tag
-                                        ;name
-       ))
-
-  (defn ent-tag [e]
-    (if-let [t (:tag e)]
-      (name t)
-      nil))
-
-  (defn child-tags [e]
-  (->> e
-       (zip/children)
-       (map ent-tag)
-       (remove nil?)
-       ))
-
- ; xbrl
- ; context
- ; entity period
- 
   
-  (zf/xml-> nodes )
-
-  (zf/xml-> nodes
-            (tag= "xbrl")
-            (tag= "context")
-            (tag= "entity"))
-
-  (zf/xml-> nodes xbrl context entity identifier)
-
-  (->> (zf/xml-> nodes xbrl)
-       (map child-tags))
-
- (->> (zf/xml-> nodes
-                 (tag= "xbrl")
-                 (tag= "schemaRef"))
-                                        ;(map child-tags)
-      first
-      )
-
-  
-  (->> (zf/xml-> nodes
-                 (tag= "xbrl")
-                 (tag= "context"))
-       (map child-tags))
-
-    (->> (zf/xml1-> nodes
-                 (tag= "xbrl")
-                 (tag= "context")
-                ; (tag= "period")
-                 (attr :id)
+  (->> (zf/xml->
+        nodes
+        (tag= "xbrl")
+        (attr "contextRef")
+          ; (tag= "CommonStockSharesOutstanding")
                  )
-         ;type
-          ; println
-         )
-
-  
- (->> (zf/xml-> nodes
-                 (tag= "xbrl")
-                 (tag= "CommonStockSharesOutstanding")
-               ;  (tag= "measure")
-                 )
-                                        ;(map child-tags)
-      ;first
-      count
-; (map zip/children)
-      
+      ;count
       )
 
 
@@ -207,20 +308,9 @@
            zx/text
            )
     count)
-
-  
- 
-
-
-
- 
-
- 
   
   (->> (zf/xml-> nodes xbrl context)
        (map child-tags))
-  
-  
   
   (->> (zf/xml1-> nodes xbrl context entity identifier)
        first

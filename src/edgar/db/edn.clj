@@ -58,6 +58,7 @@
   (build-ticker-lookup)
   (first @company-ticker-lookup)
   (count @company-ticker-lookup)
+  (keys @company-ticker-lookup)
 
   (find-company-with-ticker "AAPL")
   (find-company-with-ticker "GOOG")
