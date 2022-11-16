@@ -53,25 +53,25 @@
         id (get-in n [:attrs :id])
         ;_ (println "extr" id)
         nz (zip/xml-zip n)
-         x (zf/xml1-> nz
+         x (zx/xml1-> nz
                       (tag= "entity")
-                      zf/text)
-         seg (zf/xml1-> nz
+                      zx/text)
+         seg (zx/xml1-> nz
                         (tag= "entity")
                         (tag= "segment")
-                      zf/text)
-         dts (zf/xml1-> nz
+                      zx/text)
+         dts (zx/xml1-> nz
                       (tag= "period")
                       (tag= "startDate")
-                      zf/text)
-         dte (zf/xml1-> nz
+                      zx/text)
+         dte (zx/xml1-> nz
                       (tag= "period")
                       (tag= "endDate")
-                      zf/text)
-         dti (zf/xml1-> nz
+                      zx/text)
+         dti (zx/xml1-> nz
                       (tag= "period")
                       (tag= "instant")
-                      zf/text)
+                      zx/text)
         ]
     (remove-empty
      {:id id
@@ -82,7 +82,7 @@
       :dti dti})))
  
 (defn extract-context [nodes]
-  (->> (zf/xml-> nodes
+  (->> (zx/xml-> nodes
                  (tag= "xbrl")
                  (tag= "context"))
        ;(remove string?)
@@ -107,7 +107,7 @@
         attrs (:attrs n) ; :contextRef :decimals :id :unitRef
         ref (:contextRef attrs)
         id (:id attrs)
-       text  (zf/xml1-> nodes zf/text)
+       text  (zx/xml1-> nodes zx/text)
         ]
    ; (println (keys attrs))
     (remove-empty
@@ -119,7 +119,7 @@
 
 
 (defn measurement [nodes name]
- (let [nodes (zf/xml-> nodes
+ (let [nodes (zx/xml-> nodes
                  (tag= "xbrl")
                  (tag= name))]
    (map (partial measurement-item name) nodes)
@@ -162,8 +162,8 @@
 ; might be better idea to use into-edn
 ; currently not working.
 (def xml-spec
-  [  #(zf/xml-> % :xbrl)
-   #(zf/xml1-> %)
+  [  #(zx/xml-> % :xbrl)
+   #(zx/xml1-> %)
    ;:status % ; #(zf/xml1-> % (zf/attr :status))
     ;:ident  #(some-> %
     ;                 (zf/xml1-> :ident zf/text)
@@ -326,16 +326,7 @@
  ;     keys
       println
       )
-  
-  
-                                        ; first
-;   count
-                                        ;first
-   first;   last
-;   keys
-  #(zf/xml1-> % :xbrl)
-   )
-   
+     
 
  ;
   )

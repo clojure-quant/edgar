@@ -46,7 +46,7 @@
 
 (defn download-company-tickers []
   (let [url "https://www.sec.gov/files/company_tickers.json"
-        body (dl url)
+        body (dl-t url)
         body-edn   (cheshire/parse-string body true)
         body-edn-vals  (vals body-edn)
         body-keys-ok (map #(clojure.set/rename-keys % {:cik_str :cik}) body-edn-vals)
@@ -163,7 +163,7 @@
 
 (defn download-company-facts [cik]
   (let [url (url-company-facts cik)
-        body (dl url)
+        body (dl-t url)
         body-edn   (cheshire/parse-string body true)
         ;body-edn-vals  (vals body-edn)
         ;body-keys-ok (map #(clojure.set/rename-keys % {:cik_str :cik}) body-edn-vals)
@@ -229,45 +229,28 @@
       first
       println
       )
-  {:date-filing 2022-09-30
-   :primary goog-20220930.htm ; in url
-   :no-file 001-37580
-   :act 34, :size 11978687,
-   :no-film 221330920,
-   :no-access 0001652044-22-000090,; in url
-   :form 10-Q,
-   :primary-desc 10-Q,
-   :date-accept 2022-10-25T21:32:59.000Z,
-   :date-report 2022-09-30}
-  ;  https://www.sec.gov/Archives/edgar/data/1652044/000165204422000090/goog-20220930.htm
- 
   
+  ;  https://www.sec.gov/Archives/edgar/data/1652044/000165204422000090/goog-20220930.htm
    ;  https://www.sec.gov/ix?doc=/Archives/edgar/data/1652044/000165204422000090/goog-20220930.htm
 
   
   ; filings
 
-  (println 
-    (filing-url
+    (url-filing
       {:cik 1004655
-       :no "0001752724-21-069935"}))
+       :no "0001752724-21-069935"})
 
-  (println
+
     (filing-url
       {:cik 1652044
-       :no "0001652044-22-000090"}))
+       :no "0001652044-22-000090"})
 
- (println
-    (filing-url
-      {:cik 1652044
-       :no "0001652044-22-000090"}))
- 
- (println
+
     (filing-url
       {:cik 1652044
        :no "0001652044-22-000090"
        :filename "bongo.xml"
-       }))
+       })
 
 
     (download-filing
