@@ -104,6 +104,11 @@
    import-10q-last-safe
    (keys @db-edn/company-ticker-lookup))
 
+
+  (pmap
+   import-10q-last-safe
+   (keys @db-edn/company-ticker-lookup))
+
   
 ;
  ) 
