@@ -99,6 +99,7 @@
   (db-edn/build-ticker-lookup)
   (import-10q-last "GOOG")
   (import-10q-last "AAPL")
+  (import-10q-last "TTE")
 
   (map
    import-10q-last-safe
